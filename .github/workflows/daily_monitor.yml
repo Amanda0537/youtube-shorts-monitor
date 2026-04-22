@@ -1,0 +1,77 @@
+name: Daily YouTube Shorts Monitor
+
+on:
+  schedule:
+    # 每天北京时间上午 9 点运行（UTC 1:00）
+    - cron: '0 1 * * *'
+  workflow_dispatch:  # 允许手动触发
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          playwright install chromium
+          playwright install-deps chromium
+
+      - name: Run monitoring script
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          GITHUB_USER: Amanda0537
+          GITHUB_REPO: youtube-shorts-monitor
+        run: python run.py
+
+      - name: Deploy to GitHub Pages
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action Bot"
+
+          # 确保 reports 目录存在且有内容
+          if [ ! -f reports/index.html ]; then
+            echo "No report generated, skipping deploy"
+            exit 0
+          fi
+
+          # 切换到 gh-pages 分支
+          git fetch origin gh-pages || true
+          git checkout gh-pages || git checkout --orphan gh-pages
+
+          # 清除旧文件但保留历史报告
+          find . -maxdepth 1 ! -name '.git' ! -name 'reports' ! -name '.' -exec rm -rf {} \; 2>/dev/null || true
+
+          # 从 main 分支复制最新报告
+          git checkout main -- reports/ 2>/dev/null || true
+
+          # 将 reports 内容移到根目录
+          cp -r reports/* . 2>/dev/null || true
+
+          # 提交并推送
+          git add -A
+          git commit -m "Daily report: $(date +%Y-%m-%d)" || echo "No changes to commit"
+          git push origin gh-pages --force
+
+      - name: Summary
+        run: |
+          echo "### 📊 Daily Report Generated" >> $GITHUB_STEP_SUMMARY
+          echo "- Date: $(date +%Y-%m-%d)" >> $GITHUB_STEP_SUMMARY
+          echo "- Report: https://Amanda0537.github.io/youtube-shorts-monitor/" >> $GITHUB_STEP_SUMMARY
