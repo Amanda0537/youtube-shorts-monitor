@@ -33,10 +33,23 @@ jobs:
           playwright install chromium
           playwright install-deps chromium
 
+      - name: Check if already sent today
+        id: dedup
+        run: |
+          git fetch origin gh-pages 2>/dev/null || true
+          LAST_MSG=$(git log origin/gh-pages -1 --format=%s 2>/dev/null || echo "")
+          TODAY=$(date +%Y-%m-%d)
+          if echo "$LAST_MSG" | grep -q "Daily report: $TODAY"; then
+            echo "skip_feishu=true" >> $GITHUB_OUTPUT
+            echo "Today's report already deployed, will skip Feishu notification"
+          else
+            echo "skip_feishu=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Run monitoring script
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
-          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          FEISHU_WEBHOOK_URL: ${{ steps.dedup.outputs.skip_feishu == 'true' && '' || secrets.FEISHU_WEBHOOK_URL }}
           GITHUB_USER: Amanda0537
           GITHUB_REPO: youtube-shorts-monitor
         run: python run.py
@@ -45,27 +58,15 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action Bot"
-
-          # 确保 reports 目录存在且有内容
           if [ ! -f reports/index.html ]; then
             echo "No report generated, skipping deploy"
             exit 0
           fi
-
-          # 切换到 gh-pages 分支
           git fetch origin gh-pages || true
           git checkout gh-pages || git checkout --orphan gh-pages
-
-          # 清除旧文件但保留历史报告
           find . -maxdepth 1 ! -name '.git' ! -name 'reports' ! -name '.' -exec rm -rf {} \; 2>/dev/null || true
-
-          # 从 main 分支复制最新报告
           git checkout main -- reports/ 2>/dev/null || true
-
-          # 将 reports 内容移到根目录
           cp -r reports/* . 2>/dev/null || true
-
-          # 提交并推送
           git add -A
           git commit -m "Daily report: $(date +%Y-%m-%d)" || echo "No changes to commit"
           git push origin gh-pages --force
