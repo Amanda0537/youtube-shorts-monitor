@@ -1,0 +1,3136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YouTube Shorts 爆款日报 | 2026-08-14</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0f0f0f; color: #e8e8e8; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+.header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); padding: 30px 20px; text-align: center; }
+.header h1 { font-size: 28px; color: #fff; margin-bottom: 8px; }
+.header .date { color: #8b95a5; font-size: 16px; }
+.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; padding: 20px; max-width: 1400px; margin: 0 auto; }
+.summary-card { background: #1a1a1a; border-radius: 12px; padding: 20px; text-align: center; border: 1px solid #2a2a2a; }
+.summary-card .num { font-size: 32px; font-weight: 700; color: #ff4444; }
+.summary-card .label { color: #888; font-size: 14px; margin-top: 5px; }
+.section { max-width: 1400px; margin: 20px auto; padding: 0 20px; }
+.section-title { font-size: 20px; font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+.stats-box { background: #1a1a1a; border-radius: 12px; padding: 20px; border: 1px solid #2a2a2a; }
+.stat-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.stat-label { min-width: 100px; font-size: 13px; color: #aaa; text-align: right; }
+.bar-bg { flex: 1; background: #2a2a2a; border-radius: 4px; height: 20px; overflow: hidden; }
+.bar-fill { height: 100%; background: linear-gradient(90deg, #ff4444, #ff6b6b); border-radius: 4px; transition: width 0.5s; }
+.hook-fill { background: linear-gradient(90deg, #4ecdc4, #44bd9e) !important; }
+.stat-count { min-width: 30px; font-size: 13px; color: #fff; font-weight: 600; }
+.filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+.filter-btn { background: #2a2a2a; border: 1px solid #3a3a3a; color: #ccc; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 13px; transition: all 0.2s; }
+.filter-btn:hover, .filter-btn.active { background: #ff4444; color: #fff; border-color: #ff4444; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; }
+.card { background: #1a1a1a; border-radius: 12px; overflow: hidden; border: 1px solid #2a2a2a; transition: transform 0.2s, box-shadow 0.2s; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.5); }
+.card.recommended { border: 2px solid #ff4444; position: relative; }
+.card.recommended::before { content: "⭐ 重点推荐"; position: absolute; top: 10px; left: 10px; background: #ff4444; color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; z-index: 10; }
+.thumb-wrap { position: relative; cursor: pointer; }
+.thumb-wrap img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+.play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: rgba(0,0,0,0.7); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+.play-btn::after { content: ""; border-left: 20px solid #fff; border-top: 12px solid transparent; border-bottom: 12px solid transparent; margin-left: 4px; }
+.thumb-wrap:hover .play-btn { background: rgba(255,68,68,0.9); }
+.rank-badge { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.8); color: #fff; padding: 4px 10px; border-radius: 4px; font-weight: 700; font-size: 14px; }
+.card-body { padding: 15px; }
+.card-title { font-size: 14px; font-weight: 600; line-height: 1.4; margin-bottom: 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.card-title a { color: #e8e8e8; text-decoration: none; }
+.card-title a:hover { color: #ff4444; }
+.channel { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.channel img { width: 24px; height: 24px; border-radius: 50%; }
+.channel-name { color: #888; font-size: 13px; }
+.metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 10px; }
+.metric { font-size: 12px; color: #888; }
+.metric .val { color: #fff; font-weight: 600; }
+.metric.hot .val { color: #ff4444; }
+.tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
+.tag { font-size: 11px; padding: 3px 8px; border-radius: 10px; }
+.tag-niche { background: #1e3a5f; color: #5dade2; }
+.tag-hook { background: #1a3d2e; color: #4ecdc4; }
+.tag-char { background: #3d1a3d; color: #c39bd3; }
+.tag-lang { background: #3d3d1a; color: #f0e68c; }
+.tag-prod { background: #3d2a1a; color: #e8a87c; }
+.tag-ai { background: #2d1a1a; color: #ff6b6b; }
+.reasons { font-size: 11px; color: #ff6b6b; line-height: 1.5; padding: 8px; background: rgba(255,68,68,0.1); border-radius: 6px; margin-top: 8px; }
+.links { display: flex; gap: 8px; margin-top: 10px; }
+.link-btn { font-size: 12px; color: #5dade2; text-decoration: none; padding: 4px 10px; border: 1px solid #5dade2; border-radius: 4px; transition: all 0.2s; }
+.link-btn:hover { background: #5dade2; color: #000; }
+.footer { text-align: center; padding: 30px; color: #555; font-size: 13px; margin-top: 30px; }
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .summary { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>📊 YouTube Shorts 爆款日报</h1>
+  <div class="date">2026-08-14 | Top 97 Shorts 分析</div>
+</div>
+
+<div class="summary">
+  <div class="summary-card"><div class="num">97</div><div class="label">上榜视频</div></div>
+  <div class="summary-card"><div class="num">34</div><div class="label">重点推荐</div></div>
+  <div class="summary-card"><div class="num">34M</div><div class="label">平均播放量</div></div>
+  <div class="summary-card"><div class="num">15</div><div class="label">涉及赛道</div></div>
+</div>
+
+<div class="section">
+  <div class="section-title">📈 数据分布</div>
+  <div class="stats-grid">
+    <div class="stats-box">
+      <h3 style="margin-bottom:12px;font-size:15px;color:#ff6b6b;">赛道分布</h3>
+      <div class="stat-bar"><span class="stat-label">搞笑/整蛊</span><div class="bar-bg"><div class="bar-fill" style="width:100.0%"></div></div><span class="stat-count">23</span></div>
+<div class="stat-bar"><span class="stat-label">其他</span><div class="bar-bg"><div class="bar-fill" style="width:78.26086956521739%"></div></div><span class="stat-count">18</span></div>
+<div class="stat-bar"><span class="stat-label">故事/剧情</span><div class="bar-bg"><div class="bar-fill" style="width:65.21739130434783%"></div></div><span class="stat-count">15</span></div>
+<div class="stat-bar"><span class="stat-label">对比/排行</span><div class="bar-bg"><div class="bar-fill" style="width:30.434782608695656%"></div></div><span class="stat-count">7</span></div>
+<div class="stat-bar"><span class="stat-label">动物/宠物</span><div class="bar-bg"><div class="bar-fill" style="width:30.434782608695656%"></div></div><span class="stat-count">7</span></div>
+<div class="stat-bar"><span class="stat-label">手工/创意</span><div class="bar-bg"><div class="bar-fill" style="width:21.73913043478261%"></div></div><span class="stat-count">5</span></div>
+<div class="stat-bar"><span class="stat-label">游戏</span><div class="bar-bg"><div class="bar-fill" style="width:21.73913043478261%"></div></div><span class="stat-count">5</span></div>
+<div class="stat-bar"><span class="stat-label">解压/满足感</span><div class="bar-bg"><div class="bar-fill" style="width:17.391304347826086%"></div></div><span class="stat-count">4</span></div>
+<div class="stat-bar"><span class="stat-label">音乐/舞蹈</span><div class="bar-bg"><div class="bar-fill" style="width:13.043478260869565%"></div></div><span class="stat-count">3</span></div>
+<div class="stat-bar"><span class="stat-label">视觉错觉/特效</span><div class="bar-bg"><div class="bar-fill" style="width:13.043478260869565%"></div></div><span class="stat-count">3</span></div>
+
+    </div>
+    <div class="stats-box">
+      <h3 style="margin-bottom:12px;font-size:15px;color:#4ecdc4;">钩子类型分布</h3>
+      <div class="stat-bar"><span class="stat-label">无明显钩子</span><div class="bar-bg"><div class="bar-fill hook-fill" style="width:100.0%"></div></div><span class="stat-count">59</span></div>
+<div class="stat-bar"><span class="stat-label">纯表情/标签</span><div class="bar-bg"><div class="bar-fill hook-fill" style="width:33.89830508474576%"></div></div><span class="stat-count">20</span></div>
+<div class="stat-bar"><span class="stat-label">对比对决</span><div class="bar-bg"><div class="bar-fill hook-fill" style="width:10.16949152542373%"></div></div><span class="stat-count">6</span></div>
+<div class="stat-bar"><span class="stat-label">第三人称搞笑</span><div class="bar-bg"><div class="bar-fill hook-fill" style="width:6.779661016949152%"></div></div><span class="stat-count">4</span></div>
+<div class="stat-bar"><span class="stat-label">震惊/夸张</span><div class="bar-bg"><div class="bar-fill hook-fill" style="width:5.084745762711865%"></div></div><span class="stat-count">3</span></div>
+<div class="stat-bar"><span class="stat-label">教程/方法</span><div class="bar-bg"><div class="bar-fill hook-fill" style="width:3.389830508474576%"></div></div><span class="stat-count">2</span></div>
+<div class="stat-bar"><span class="stat-label">叙事型</span><div class="bar-bg"><div class="bar-fill hook-fill" style="width:1.694915254237288%"></div></div><span class="stat-count">1</span></div>
+<div class="stat-bar"><span class="stat-label">反转/等结尾</span><div class="bar-bg"><div class="bar-fill hook-fill" style="width:1.694915254237288%"></div></div><span class="stat-count">1</span></div>
+
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">🎬 完整排行榜</div>
+  <div class="filters">
+    <button class="filter-btn active" onclick="filterCards('all')">全部</button>
+    <button class="filter-btn" onclick="filterCards('recommended')">⭐ 仅推荐</button>
+    <button class="filter-btn" onclick="filterCards('high-ai')">🤖 AI适配≥80</button>
+    <button class="filter-btn" onclick="filterCards('en')">🌍 英文/全球</button>
+    <button class="filter-btn" onclick="filterCards('small')">🚀 小频道爆款</button>
+  </div>
+  <div class="grid" id="videoGrid">
+    
+<div class="card recommended" data-niche="STR" data-lang="EN" data-ai-score="90" data-subs="228000" data-virality="1072.6">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/Nqs5e1t8e9g','_blank')">
+    <img src="https://i.ytimg.com/vi/Nqs5e1t8e9g/maxresdefault.jpg" alt="Dil le gai le gai dil le gai le gai💍💜💑 #RM💙#jimin#V💚#jungkook💜#viralshorts #trde" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/Nqs5e1t8e9g/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#1</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/Nqs5e1t8e9g" target="_blank">Dil le gai le gai dil le gai le gai💍💜💑 #RM💙#jimin#V💚#jungkook💜#viralshorts #trde</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/1sCWzuvu1sILF5dwThWoma_UaFpgIWNjIqcc-UDSaOHa4181SLBdeDFfq7abwpSPJvxizI8gSQ=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">ArmyBTS75</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">244.6M</span> 播放</div>
+      <div class="metric"><span class="val">228.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">1072.6x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.3%</span> 互动率</div>
+      <div class="metric"><span class="val">741.3K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">故事/剧情</span>
+<span class="tag tag-char">家庭(生活人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">EDIT</span>
+<span class="tag tag-ai">AI适配:90</span>
+</div>
+    <div class="reasons">💡 超高爆款系数(1072.6x)；AI动画适配度高(90分)；英文/全球市场 + 高播放(244M)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/Nqs5e1t8e9g" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@armybts-z75k/videos/Nqs5e1t8e9g" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="FUN" data-lang="VI" data-ai-score="65" data-subs="407000" data-virality="262.5">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/oNFcUfjQ47Q','_blank')">
+    <img src="https://i.ytimg.com/vi/oNFcUfjQ47Q/maxresdefault.jpg" alt="Haaland Turned Mbappé's Gym Into a Powder Storm 😂💨 #shorts  #haaland #mbappe #fu" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/oNFcUfjQ47Q/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#2</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/oNFcUfjQ47Q" target="_blank">Haaland Turned Mbappé's Gym Into a Powder Storm 😂💨 #shorts  #haaland #mbappe #fu</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/4YxofAM3uG33Is8l6eyxxyMshovsVfoZQvYmpPMFXY_7crkLKWnA-mCNmu4bCQxczc9ihQL2xA=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">HappyHM</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">106.8M</span> 播放</div>
+      <div class="metric"><span class="val">407.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">262.5x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.33%</span> 互动率</div>
+      <div class="metric"><span class="val">353.8K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-char">健身达人(职业人设)</span>
+<span class="tag tag-lang">VI</span>
+<span class="tag tag-ai">AI适配:65</span>
+</div>
+    <div class="reasons">💡 超高爆款系数(262.5x)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/oNFcUfjQ47Q" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@happyhm-o6j/videos/oNFcUfjQ47Q" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="OTH" data-lang="EN" data-ai-score="55" data-subs="789000" data-virality="116.9">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/PF6utDeTIfY','_blank')">
+    <img src="https://i.ytimg.com/vi/PF6utDeTIfY/maxresdefault.jpg" alt="Haaland Scared a Girl! 👻😂" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/PF6utDeTIfY/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#3</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/PF6utDeTIfY" target="_blank">Haaland Scared a Girl! 👻😂</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/Zk7C_5DZHNjbHyRR301dNp7eiuiZjGsoScGpRL7kh5WSILyiZXraAPVsuQWv5VBgYomAwGkAgQ=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Mert Boo</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">92.2M</span> 播放</div>
+      <div class="metric"><span class="val">789.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">116.9x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.45%</span> 互动率</div>
+      <div class="metric"><span class="val">417.8K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">其他</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:55</span>
+</div>
+    <div class="reasons">💡 超高爆款系数(116.9x)；英文/全球市场 + 高播放(92M)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/PF6utDeTIfY" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@mert_boo/videos/PF6utDeTIfY" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="STR" data-lang="EN" data-ai-score="90" data-subs="228000" data-virality="349.5">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/0bgz7stE_EE','_blank')">
+    <img src="https://i.ytimg.com/vi/0bgz7stE_EE/maxresdefault.jpg" alt="Dil le gai le gai dil le gai le gai💍💜💑 #RM💙#jimin#V💚#jungkook💜#viralshorts #trde" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/0bgz7stE_EE/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#4</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/0bgz7stE_EE" target="_blank">Dil le gai le gai dil le gai le gai💍💜💑 #RM💙#jimin#V💚#jungkook💜#viralshorts #trde</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/1sCWzuvu1sILF5dwThWoma_UaFpgIWNjIqcc-UDSaOHa4181SLBdeDFfq7abwpSPJvxizI8gSQ=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">ArmyBTS75</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">79.7M</span> 播放</div>
+      <div class="metric"><span class="val">228.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">349.5x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.33%</span> 互动率</div>
+      <div class="metric"><span class="val">263.4K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">故事/剧情</span>
+<span class="tag tag-char">家庭(生活人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">EDIT</span>
+<span class="tag tag-ai">AI适配:90</span>
+</div>
+    <div class="reasons">💡 超高爆款系数(349.5x)；AI动画适配度高(90分)；英文/全球市场 + 高播放(79M)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/0bgz7stE_EE" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@armybts-z75k/videos/0bgz7stE_EE" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="STR" data-lang="VI" data-ai-score="85" data-subs="61200" data-virality="1395.2">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/PMlO0O-2g4g','_blank')">
+    <img src="https://i.ytimg.com/vi/PMlO0O-2g4g/maxresdefault.jpg" alt="Bé Gái đã làm sạch Bàn tay bẩn của ông nội 🧼❤️#shorts" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/PMlO0O-2g4g/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#5</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/PMlO0O-2g4g" target="_blank">Bé Gái đã làm sạch Bàn tay bẩn của ông nội 🧼❤️#shorts</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/io4eWP14BeRS-8AdXKEMwKkjSKQEuH3Z_2G0sVKFQYsXAC9mkLSL-biOJmUmD0ybKU4EznYw=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Ngoc Mai Family</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">85.4M</span> 播放</div>
+      <div class="metric"><span class="val">61.2K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">1395.2x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.42%</span> 互动率</div>
+      <div class="metric"><span class="val">356.0K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">故事/剧情</span>
+<span class="tag tag-char">家庭(生活人设)</span>
+<span class="tag tag-lang">VI</span>
+<span class="tag tag-ai">AI适配:85</span>
+</div>
+    <div class="reasons">💡 小频道爆款(粉丝61,200, 爆款系数1395.2x)；超高爆款系数(1395.2x)；AI动画适配度高(85分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/PMlO0O-2g4g" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@ngocmaiyeu40592/videos/PMlO0O-2g4g" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="FUN" data-lang="EN" data-ai-score="70" data-subs="1810000" data-virality="38.9">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/AnZaTjzCTXk','_blank')">
+    <img src="https://i.ytimg.com/vi/AnZaTjzCTXk/maxresdefault.jpg" alt="at least I didn’t spill 🫠 #couple #couplegoals #couplecomedy" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/AnZaTjzCTXk/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#6</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/AnZaTjzCTXk" target="_blank">at least I didn’t spill 🫠 #couple #couplegoals #couplecomedy</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/oHsuss84urGty2YCEz24NHhDDKPYjn_uOsyoQfHZgwA06VVTK2FUiZpx4oOE4GCY7j3MmBBevw=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">hyoga.x</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">70.4M</span> 播放</div>
+      <div class="metric"><span class="val">1.8M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">38.9x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.98%</span> 互动率</div>
+      <div class="metric"><span class="val">686.2K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-char">情侣(生活人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:70</span>
+</div>
+    <div class="reasons">💡 英文/全球市场 + 高播放(70M)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/AnZaTjzCTXk" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@hyoga.official/videos/AnZaTjzCTXk" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="FUN" data-lang="EN" data-ai-score="70" data-subs="21200" data-virality="3262.8">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/vA5ehyrbjck','_blank')">
+    <img src="https://i.ytimg.com/vi/vA5ehyrbjck/maxresdefault.jpg" alt="Samsung Trying To Defend Itself 📱😭" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/vA5ehyrbjck/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#7</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/vA5ehyrbjck" target="_blank">Samsung Trying To Defend Itself 📱😭</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/WDxR-N5imUwOF8hpSJdyWrMc_95OXQ-2mxqZ9XwLXi9TrmGluFdVNGKBldU-YZqKx_w2TB9h=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Spaz</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">69.2M</span> 播放</div>
+      <div class="metric"><span class="val">21.2K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">3262.8x</span> 爆款系数</div>
+      <div class="metric"><span class="val">1.1%</span> 互动率</div>
+      <div class="metric"><span class="val">756.0K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-hook">内容:震惊/夸张</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:70</span>
+</div>
+    <div class="reasons">💡 小频道爆款(粉丝21,200, 爆款系数3262.8x)；超高爆款系数(3262.8x)；英文/全球市场 + 高播放(69M)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/vA5ehyrbjck" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@memespaz26/videos/vA5ehyrbjck" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="SAT" data-lang="EN" data-ai-score="95" data-subs="412000" data-virality="144.1">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/oPIkaGx0gKw','_blank')">
+    <img src="https://i.ytimg.com/vi/oPIkaGx0gKw/maxresdefault.jpg" alt="Warum versteht mein Gehirn das nicht.. 😳 6 std arbeit 🫶#fyp #viral #illusion #3d" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/oPIkaGx0gKw/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#8</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/oPIkaGx0gKw" target="_blank">Warum versteht mein Gehirn das nicht.. 😳 6 std arbeit 🫶#fyp #viral #illusion #3d</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/X7VIrDnuEnMg4vcLwWZNwSnuBs7G-1ScHNmc2JOL2870OE7OxWzy3N1Zw2yq9_36_HRSBh3a=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Malerart</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">59.4M</span> 播放</div>
+      <div class="metric"><span class="val">412.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">144.1x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.91%</span> 互动率</div>
+      <div class="metric"><span class="val">539.9K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">解压/满足感</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-char">魔术师(职业人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:95</span>
+</div>
+    <div class="reasons">💡 超高爆款系数(144.1x)；AI动画适配度高(95分)；英文/全球市场 + 高播放(59M)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/oPIkaGx0gKw" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@malerart/videos/oPIkaGx0gKw" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="SAT" data-lang="EN" data-ai-score="95" data-subs="75500" data-virality="700.7">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/8-BTHrPA408','_blank')">
+    <img src="https://i.ytimg.com/vi/8-BTHrPA408/maxresdefault.jpg" alt="ASMR Build of Our Most Detailed Hero 🕸️🔊" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/8-BTHrPA408/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#9</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/8-BTHrPA408" target="_blank">ASMR Build of Our Most Detailed Hero 🕸️🔊</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/8ui5A8OPaPvRCn9Dvto-IdWQT3dvoiqDHSHbMjgj5Tb4UEikxWYUn-W65MU0CU5DCLdrzXBfZQ=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Titan3D</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">52.9M</span> 播放</div>
+      <div class="metric"><span class="val">75.5K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">700.7x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.86%</span> 互动率</div>
+      <div class="metric"><span class="val">454.3K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">解压/满足感</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:95</span>
+</div>
+    <div class="reasons">💡 小频道爆款(粉丝75,500, 爆款系数700.7x)；超高爆款系数(700.7x)；AI动画适配度高(95分)；英文/全球市场 + 高播放(52M)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/8-BTHrPA408" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@titan3dofficial/videos/8-BTHrPA408" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="SAT" data-lang="EN" data-ai-score="95" data-subs="187000" data-virality="321.2">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/yxwo6MuHzfo','_blank')">
+    <img src="https://i.ytimg.com/vi/yxwo6MuHzfo/maxresdefault.jpg" alt="Foil paper ASMR 😍 .#asmr #satisfying #asmrsound #relaxing #oddlysatisfyingvide" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/yxwo6MuHzfo/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#10</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/yxwo6MuHzfo" target="_blank">Foil paper ASMR 😍 .#asmr #satisfying #asmrsound #relaxing #oddlysatisfyingvide</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/OSIWxT95Wx6FpJ8ZXY6ale8u1tv97VUvrSZxnXaajTUO0bapXx1cD2c9tDpB6bLQJa0aT_G44g=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Shafaqat ASMR</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">60.1M</span> 播放</div>
+      <div class="metric"><span class="val">187.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">321.2x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.35%</span> 互动率</div>
+      <div class="metric"><span class="val">211.0K</span> 点赞</div>
+      <div class="metric"><span class="val">5天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">解压/满足感</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:95</span>
+</div>
+    <div class="reasons">💡 超高爆款系数(321.2x)；AI动画适配度高(95分)；英文/全球市场 + 高播放(60M)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/yxwo6MuHzfo" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@shafaqatasmr/videos/yxwo6MuHzfo" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="MUS" data-lang="VI" data-ai-score="40" data-subs="1770000" data-virality="27.8">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/duXK-wdK66E','_blank')">
+    <img src="https://i.ytimg.com/vi/duXK-wdK66E/maxresdefault.jpg" alt="152Can Mbappé Sing It Back? 🤔" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/duXK-wdK66E/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#11</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/duXK-wdK66E" target="_blank">152Can Mbappé Sing It Back? 🤔</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/3Y_u0nNj5P9fK2O78V0ZKdMMzaN473iMlvvlda4lm9kN5jaKVj0Ql18JoTQN2H_Dso6n_Gls=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">GoalZilla</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">49.3M</span> 播放</div>
+      <div class="metric"><span class="val">1.8M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">27.8x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.43%</span> 互动率</div>
+      <div class="metric"><span class="val">210.4K</span> 点赞</div>
+      <div class="metric"><span class="val">5天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">音乐/舞蹈</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-lang">VI</span>
+<span class="tag tag-ai">AI适配:40</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/duXK-wdK66E" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@goalzilla0906/videos/duXK-wdK66E" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="FUN" data-lang="EN" data-ai-score="95" data-subs="410000" data-virality="114.6">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/Z3gnSS5Ng6k','_blank')">
+    <img src="https://i.ytimg.com/vi/Z3gnSS5Ng6k/maxresdefault.jpg" alt="you don't 😂|| #trending #kookies #aesthetic #shorts #funny #kpop" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/Z3gnSS5Ng6k/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#12</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/Z3gnSS5Ng6k" target="_blank">you don't 😂|| #trending #kookies #aesthetic #shorts #funny #kpop</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/-_NZGa9flCs_gfg2Ubc6Hz8LRy1jeI4sJGFSHPAMdjnHNgvtK-Cw02DKiAdum0bEkqNMwfT17w=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">𝗞𝗼𝗼𝗸𝗶𝗲ᯓᡣ𐭩</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">47.0M</span> 播放</div>
+      <div class="metric"><span class="val">410.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">114.6x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.83%</span> 互动率</div>
+      <div class="metric"><span class="val">388.6K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-char">Disney角色(游戏/动漫IP)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">ANIM</span>
+<span class="tag tag-ai">AI适配:95</span>
+</div>
+    <div class="reasons">💡 超高爆款系数(114.6x)；AI动画适配度高(95分)；已是AI/动画内容，直接参考</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/Z3gnSS5Ng6k" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@kookieaa/videos/Z3gnSS5Ng6k" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="CMP" data-lang="KO" data-ai-score="90" data-subs="710000" data-virality="63.7">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/45mwjc0DAUo','_blank')">
+    <img src="https://i.ytimg.com/vi/45mwjc0DAUo/maxresdefault.jpg" alt="저승사자 vs 천사 (3편)" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/45mwjc0DAUo/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#13</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/45mwjc0DAUo" target="_blank">저승사자 vs 천사 (3편)</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/eBMi0bInwrMC6jK9OIDKiHyQAiBhYIAsFmoteU_WDUnLImXYaF65KlqcIKE3PzO3FkX9xlXN=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">저승이와 친구들</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">45.3M</span> 播放</div>
+      <div class="metric"><span class="val">710.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">63.7x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.78%</span> 互动率</div>
+      <div class="metric"><span class="val">351.9K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">对比/排行</span>
+<span class="tag tag-hook">钩子:对比对决</span>
+<span class="tag tag-lang">KO</span>
+<span class="tag tag-ai">AI适配:90</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(90分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/45mwjc0DAUo" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@reapyworld/videos/45mwjc0DAUo" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="ILL" data-lang="EN" data-ai-score="95" data-subs="1150000" data-virality="35.8">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/_Bhuk-qfj48','_blank')">
+    <img src="https://i.ytimg.com/vi/_Bhuk-qfj48/maxresdefault.jpg" alt="He Was So Confident ❤️" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/_Bhuk-qfj48/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#14</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/_Bhuk-qfj48" target="_blank">He Was So Confident ❤️</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/l9Ry5KYs1U_ITEsbx-cfdINV_S_ufalQ7gkuYH7FqhUSUib0JWBzJtmP2kah2aLDSmeOJn8aycw=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Mindova</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">41.1M</span> 播放</div>
+      <div class="metric"><span class="val">1.1M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">35.8x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.38%</span> 互动率</div>
+      <div class="metric"><span class="val">153.1K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">视觉错觉/特效</span>
+<span class="tag tag-hook">钩子:叙事型</span>
+<span class="tag tag-char">猫咪人设(动物)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">EDIT</span>
+<span class="tag tag-ai">AI适配:95</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(95分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/_Bhuk-qfj48" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@mindovashorts/videos/_Bhuk-qfj48" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="DIY" data-lang="EN" data-ai-score="80" data-subs="10200000" data-virality="4.3">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/W1D2Ofmlv_4','_blank')">
+    <img src="https://i.ytimg.com/vi/W1D2Ofmlv_4/maxresdefault.jpg" alt="Invisible Painting in Dhurandhar movie style 😱 🖋️ #shorts" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/W1D2Ofmlv_4/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#15</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/W1D2Ofmlv_4" target="_blank">Invisible Painting in Dhurandhar movie style 😱 🖋️ #shorts</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/odxfy9SqERF2cB5osI9ivmL1V6AZ-rvi4ngsbJVhDtEVFgXw6yqOE1-aK-_A6gzDHdtg9I9NHg=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Paintellectual PriyA</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">43.8M</span> 播放</div>
+      <div class="metric"><span class="val">10.2M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">4.3x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.72%</span> 互动率</div>
+      <div class="metric"><span class="val">315.4K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">手工/创意</span>
+<span class="tag tag-hook">内容:教程/方法</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:80</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(80分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/W1D2Ofmlv_4" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@paintellectualpriya/videos/W1D2Ofmlv_4" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="STR" data-lang="EN" data-ai-score="90" data-subs="9280000" data-virality="5.1">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/OT35tSSuOq0','_blank')">
+    <img src="https://i.ytimg.com/vi/OT35tSSuOq0/maxresdefault.jpg" alt="Brotherly Love: Sharing Hats on a Hot Summer Day 🧢 ☀️" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/OT35tSSuOq0/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#16</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/OT35tSSuOq0" target="_blank">Brotherly Love: Sharing Hats on a Hot Summer Day 🧢 ☀️</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/TSLf6WqRrLwZpNzomLGQk29aMLdG9prcDrtZmGMlN-S6W5jT4-KRPhONS9T60hUJIu48et7orw=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">KIDZOKI</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">46.9M</span> 播放</div>
+      <div class="metric"><span class="val">9.3M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">5.1x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.74%</span> 互动率</div>
+      <div class="metric"><span class="val">347.1K</span> 点赞</div>
+      <div class="metric"><span class="val">5天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">故事/剧情</span>
+<span class="tag tag-char">猫咪人设(动物)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:90</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(90分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/OT35tSSuOq0" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@kidzoki_official/videos/OT35tSSuOq0" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="FUN" data-lang="EN" data-ai-score="70" data-subs="20300000" data-virality="2.1">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/CZK1w3fC_Do','_blank')">
+    <img src="https://i.ytimg.com/vi/CZK1w3fC_Do/maxresdefault.jpg" alt="Pt. Sir ki Beti in School 😂⛹️‍♀️ #shorts #ytshorts #ptsir #teratrigun" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/CZK1w3fC_Do/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#17</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/CZK1w3fC_Do" target="_blank">Pt. Sir ki Beti in School 😂⛹️‍♀️ #shorts #ytshorts #ptsir #teratrigun</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/2sXrT0VwCOThZtAQsETCtkuQiNAZPJbuk3oe7oyYmO9kAANXwa-tF4TxnMlq7ODuezatwBJ8Ow=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Tera Trigun</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">42.8M</span> 播放</div>
+      <div class="metric"><span class="val">20.3M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">2.1x</span> 爆款系数</div>
+      <div class="metric"><span class="val">1.32%</span> 互动率</div>
+      <div class="metric"><span class="val">564.8K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:70</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/CZK1w3fC_Do" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@teratrigun/videos/CZK1w3fC_Do" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="FOD" data-lang="EN" data-ai-score="65" data-subs="12300000" data-virality="3.3">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/oQbKmCH_YIw','_blank')">
+    <img src="https://i.ytimg.com/vi/oQbKmCH_YIw/maxresdefault.jpg" alt="Aaj to Ghar me Aag lag jati 😢 #cooking #food #recipe #vlog #dailyvlog #funny #co" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/oQbKmCH_YIw/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#18</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/oQbKmCH_YIw" target="_blank">Aaj to Ghar me Aag lag jati 😢 #cooking #food #recipe #vlog #dailyvlog #funny #co</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/as0-bHrhEs5UNvAr83LyPA7lenOXKQqYIy9Bk76Jo__BYCuTN2T5O9I28ZbNcD2AFC3ieA2m=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Loveneet Valecha</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">40.8M</span> 播放</div>
+      <div class="metric"><span class="val">12.3M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">3.3x</span> 爆款系数</div>
+      <div class="metric"><span class="val">1.97%</span> 互动率</div>
+      <div class="metric"><span class="val">800.6K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">美食</span>
+<span class="tag tag-hook">钩子:纯表情/标签</span>
+<span class="tag tag-char">厨师(职业人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:65</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/oQbKmCH_YIw" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@loveneetvalecha/videos/oQbKmCH_YIw" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="ANI" data-lang="ZH" data-ai-score="85" data-subs="1510000" data-virality="32.2">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/HLM64U9wifQ','_blank')">
+    <img src="https://i.ytimg.com/vi/HLM64U9wifQ/maxresdefault.jpg" alt="#萌寵出道計劃 #猴子 #這小猴子太可愛了吧 #0-3歲兒童啟蒙早教 #這也太萌太可愛了吧" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/HLM64U9wifQ/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#19</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/HLM64U9wifQ" target="_blank">#萌寵出道計劃 #猴子 #這小猴子太可愛了吧 #0-3歲兒童啟蒙早教 #這也太萌太可愛了吧</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/9_twF5nPzYrymKEszmwQeT5asO4744t6OvQiskBCbA3ahHiL7MPC-rbqffnyXvizuHfC1lFm7A=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">shell Animations</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">48.6M</span> 播放</div>
+      <div class="metric"><span class="val">1.5M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">32.2x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.34%</span> 互动率</div>
+      <div class="metric"><span class="val">164.8K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">动物/宠物</span>
+<span class="tag tag-char">猫咪人设(动物)</span>
+<span class="tag tag-lang">ZH</span>
+<span class="tag tag-prod">ANIM</span>
+<span class="tag tag-ai">AI适配:85</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(85分)；已是AI/动画内容，直接参考</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/HLM64U9wifQ" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@tshellanimations/videos/HLM64U9wifQ" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="SPT" data-lang="EN" data-ai-score="35" data-subs="159000" data-virality="250.8">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/46SBwj5_6UU','_blank')">
+    <img src="https://i.ytimg.com/vi/46SBwj5_6UU/maxresdefault.jpg" alt="Couple goals 😅👩🏻‍❤️‍👩🏻  #trending #smile #avinashpatel #tanutaneja #youtube" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/46SBwj5_6UU/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#20</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/46SBwj5_6UU" target="_blank">Couple goals 😅👩🏻‍❤️‍👩🏻  #trending #smile #avinashpatel #tanutaneja #youtube</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/D71V1rbYJKSLdFRmKe6pmckQZRxmlqhQEIvcXgtusJ9naSjgTkolRz1f0Wj6e7hkmFvgYZ5gn0o=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Allhad Couple </span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">39.9M</span> 播放</div>
+      <div class="metric"><span class="val">159.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">250.8x</span> 爆款系数</div>
+      <div class="metric"><span class="val">1.71%</span> 互动率</div>
+      <div class="metric"><span class="val">680.3K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">体育/运动</span>
+<span class="tag tag-char">宝宝/亲子(生活人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">EDIT</span>
+<span class="tag tag-ai">AI适配:35</span>
+</div>
+    <div class="reasons">💡 超高爆款系数(250.8x)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/46SBwj5_6UU" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@allhadcouple/videos/46SBwj5_6UU" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="CMP" data-lang="EN" data-ai-score="95" data-subs="2960000" data-virality="12.6">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/-0PYEeCKTao','_blank')">
+    <img src="https://i.ytimg.com/vi/-0PYEeCKTao/maxresdefault.jpg" alt="Water vs Sand" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/-0PYEeCKTao/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#21</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/-0PYEeCKTao" target="_blank">Water vs Sand</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/4UQ577L3bctWdMmwi-PjYIqXXFj_WGRIZNwMuL8-JN2xtfb56DRVv8ONu6VakDZHCqOISI6D=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">DoubleBite</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">37.3M</span> 播放</div>
+      <div class="metric"><span class="val">3.0M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">12.6x</span> 爆款系数</div>
+      <div class="metric"><span class="val">1.42%</span> 互动率</div>
+      <div class="metric"><span class="val">526.1K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">对比/排行</span>
+<span class="tag tag-hook">钩子:对比对决</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:95</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(95分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/-0PYEeCKTao" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@doublebite_official/videos/-0PYEeCKTao" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="CMP" data-lang="EN" data-ai-score="95" data-subs="22800000" data-virality="1.6">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/CGNKDR-F24A','_blank')">
+    <img src="https://i.ytimg.com/vi/CGNKDR-F24A/maxresdefault.jpg" alt="Bhai Vs Behen! Part 6 #shorts" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/CGNKDR-F24A/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#22</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/CGNKDR-F24A" target="_blank">Bhai Vs Behen! Part 6 #shorts</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/5pRV-W3B2UlzSu2ZmkprgZb6Sp2kYo1js1U8vWnvcUH2cOvC_b7yYlwb5nWlof4s7Fu_1DPo=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Shreemani Tripathi</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">37.1M</span> 播放</div>
+      <div class="metric"><span class="val">22.8M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">1.6x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.81%</span> 互动率</div>
+      <div class="metric"><span class="val">300.3K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">对比/排行</span>
+<span class="tag tag-hook">钩子:对比对决</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:95</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(95分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/CGNKDR-F24A" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@shreemanitripathi/videos/CGNKDR-F24A" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="FUN" data-lang="EN" data-ai-score="70" data-subs="76000000" data-virality="0.5">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/8k7It3Mm0c0','_blank')">
+    <img src="https://i.ytimg.com/vi/8k7It3Mm0c0/maxresdefault.jpg" alt="Friendly Neighborhood🕷️ #spiderman  #spidermanbrandnewday" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/8k7It3Mm0c0/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#23</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/8k7It3Mm0c0" target="_blank">Friendly Neighborhood🕷️ #spiderman  #spidermanbrandnewday</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/WQJfAcYaEL-sQ7LcF86SHG-T4u9zjiSScvdFxh73GCFJKleVcTakwZaqMhsGdZ64gfccQ2gn4Q=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">ISSEI / いっせい</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">36.5M</span> 播放</div>
+      <div class="metric"><span class="val">76.0M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">0.5x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.72%</span> 互动率</div>
+      <div class="metric"><span class="val">261.2K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-hook">内容:教程/方法</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:70</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/8k7It3Mm0c0" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@issei0806/videos/8k7It3Mm0c0" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="OTH" data-lang="EN" data-ai-score="55" data-subs="151000" data-virality="235.0">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/WAJXVjsbF3E','_blank')">
+    <img src="https://i.ytimg.com/vi/WAJXVjsbF3E/maxresdefault.jpg" alt="Rakai Accidentally Woke Up Rayquan 😭💀 #shorts" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/WAJXVjsbF3E/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#24</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/WAJXVjsbF3E" target="_blank">Rakai Accidentally Woke Up Rayquan 😭💀 #shorts</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/agsNsITMi8LtnQW8a-4h0bL5_IzlVSw_smcpD0xGlZaCM4Um3q1125YGRPSvK6zF7Jluh9QT=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">OnShortz</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">35.5M</span> 播放</div>
+      <div class="metric"><span class="val">151.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">235.0x</span> 爆款系数</div>
+      <div class="metric"><span class="val">1.05%</span> 互动率</div>
+      <div class="metric"><span class="val">371.5K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">其他</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:55</span>
+</div>
+    <div class="reasons">💡 超高爆款系数(235.0x)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/WAJXVjsbF3E" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@onshortzz/videos/WAJXVjsbF3E" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="FUN" data-lang="EN" data-ai-score="70" data-subs="71000" data-virality="512.2">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/mkcT8HQbBtg','_blank')">
+    <img src="https://i.ytimg.com/vi/mkcT8HQbBtg/maxresdefault.jpg" alt="How to grow a SNAKE watermelon! 🐍🍉 #shorts #funny" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/mkcT8HQbBtg/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#25</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/mkcT8HQbBtg" target="_blank">How to grow a SNAKE watermelon! 🐍🍉 #shorts #funny</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/-HLp8PFW34JjIp1hHvQF6inXkZvHyw5qvj1Cy92yO-_uWKDR-8GHF6Z-UdHtY8gIWURAR2WOzw=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Sweetitude</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">36.4M</span> 播放</div>
+      <div class="metric"><span class="val">71.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">512.2x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.81%</span> 互动率</div>
+      <div class="metric"><span class="val">294.3K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-hook">钩子:教程/方法</span>
+<span class="tag tag-hook">内容:对比对决</span>
+<span class="tag tag-char">魔术师(职业人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:70</span>
+</div>
+    <div class="reasons">💡 小频道爆款(粉丝71,000, 爆款系数512.2x)；超高爆款系数(512.2x)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/mkcT8HQbBtg" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@sweetitude/videos/mkcT8HQbBtg" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="GAM" data-lang="EN" data-ai-score="100" data-subs="2270000" data-virality="16.1">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/It-EdtBdt8s','_blank')">
+    <img src="https://i.ytimg.com/vi/It-EdtBdt8s/maxresdefault.jpg" alt="When you pretend to be sick to skip school 😭 #roblox #shorts #robloxanimation #u" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/It-EdtBdt8s/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#26</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/It-EdtBdt8s" target="_blank">When you pretend to be sick to skip school 😭 #roblox #shorts #robloxanimation #u</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/wOSy4ncdC99l3sE3ZNRzFL4kosnkMzPl8chJ0h4I6ru3ZgjoR8uqnfjXp6c-BI2hQo95zn3QPg=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Mashles</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">36.5M</span> 播放</div>
+      <div class="metric"><span class="val">2.3M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">16.1x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.94%</span> 互动率</div>
+      <div class="metric"><span class="val">340.4K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">游戏</span>
+<span class="tag tag-hook">钩子:第三人称搞笑</span>
+<span class="tag tag-hook">内容:对比对决</span>
+<span class="tag tag-char">Roblox角色(游戏/动漫IP)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">ANIM</span>
+<span class="tag tag-ai">AI适配:100</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(100分)；已是AI/动画内容，直接参考</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/It-EdtBdt8s" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@mashles27/videos/It-EdtBdt8s" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="STR" data-lang="EN" data-ai-score="90" data-subs="4120000" data-virality="8.8">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/_b_1CJPVDds','_blank')">
+    <img src="https://i.ytimg.com/vi/_b_1CJPVDds/maxresdefault.jpg" alt="Qismat badalti hai | Kala ladka sad Family story 😭💔 | Arijit Singh | New Hindi S" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/_b_1CJPVDds/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#27</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/_b_1CJPVDds" target="_blank">Qismat badalti hai | Kala ladka sad Family story 😭💔 | Arijit Singh | New Hindi S</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/wF4Ku0a9JEpXb19e7osXqW82l1OCoBQRuZOVuMk8xSdcf38YTSlWwAvV-tDbkGIpkPDYxvuS=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Sweet Heart Music </span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">36.3M</span> 播放</div>
+      <div class="metric"><span class="val">4.1M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">8.8x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.77%</span> 互动率</div>
+      <div class="metric"><span class="val">280.9K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">故事/剧情</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-char">宝宝/亲子(生活人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:90</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(90分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/_b_1CJPVDds" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@sweetheartofficialmusic/videos/_b_1CJPVDds" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="FUN" data-lang="EN" data-ai-score="70" data-subs="1470000" data-virality="23.4">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/v3yAnNb0TKo','_blank')">
+    <img src="https://i.ytimg.com/vi/v3yAnNb0TKo/maxresdefault.jpg" alt="bro slept for two days straight 😂 #shortsfeed #shorts #viralvideo" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/v3yAnNb0TKo/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#28</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/v3yAnNb0TKo" target="_blank">bro slept for two days straight 😂 #shortsfeed #shorts #viralvideo</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/duR5RZWAaKTDCvIotjQi8QqpOD6vQoIRTjhYhqLZBvRpib64jM5H4pGijWalsl7hSqnSXZ8S3RI=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">All about your favs</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">34.5M</span> 播放</div>
+      <div class="metric"><span class="val">1.5M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">23.4x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.91%</span> 互动率</div>
+      <div class="metric"><span class="val">311.3K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-hook">钩子:第三人称搞笑</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:70</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/v3yAnNb0TKo" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@allabtyourfavs/videos/v3yAnNb0TKo" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="CMP" data-lang="EN" data-ai-score="95" data-subs="269000" data-virality="130.1">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/y1Onjr_ffdM','_blank')">
+    <img src="https://i.ytimg.com/vi/y1Onjr_ffdM/maxresdefault.jpg" alt="Ranking Best Mochi Making Moments😭😂" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/y1Onjr_ffdM/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#29</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/y1Onjr_ffdM" target="_blank">Ranking Best Mochi Making Moments😭😂</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/sFAjD2QO037z3OFJYqJUwQSAbqs4f0jyoF3Ual2I7EWCyvfbhJPON7Fn4U3vO_dg81x5kBSsgw=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Rinzu Ranks</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">35.0M</span> 播放</div>
+      <div class="metric"><span class="val">269.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">130.1x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.62%</span> 互动率</div>
+      <div class="metric"><span class="val">214.9K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">对比/排行</span>
+<span class="tag tag-hook">钩子:震惊/夸张</span>
+<span class="tag tag-char">家庭(生活人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">EDIT</span>
+<span class="tag tag-ai">AI适配:95</span>
+</div>
+    <div class="reasons">💡 超高爆款系数(130.1x)；AI动画适配度高(95分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/y1Onjr_ffdM" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@rinzuranks/videos/y1Onjr_ffdM" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="OTH" data-lang="EN" data-ai-score="55" data-subs="26900" data-virality="1282.5">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/hkQowJDGb9E','_blank')">
+    <img src="https://i.ytimg.com/vi/hkQowJDGb9E/maxresdefault.jpg" alt="💛Comment "STARZIE" for the link, or shop now through the link in our bio at Baby" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/hkQowJDGb9E/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#30</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/hkQowJDGb9E" target="_blank">💛Comment "STARZIE" for the link, or shop now through the link in our bio at Baby</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/apv1zOSAUwW5hM6QfNHy5-jZogCSaB3ofx_W_TGGYc-hM8QkT-aJZQ9hFnBwMytnClNg9JPHSwY=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">BabyStarNest</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">34.5M</span> 播放</div>
+      <div class="metric"><span class="val">26.9K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">1282.5x</span> 爆款系数</div>
+      <div class="metric"><span class="val">1.22%</span> 互动率</div>
+      <div class="metric"><span class="val">416.6K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">其他</span>
+<span class="tag tag-char">宝宝/亲子(生活人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:55</span>
+</div>
+    <div class="reasons">💡 小频道爆款(粉丝26,900, 爆款系数1282.5x)；超高爆款系数(1282.5x)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/hkQowJDGb9E" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@babystarnest/videos/hkQowJDGb9E" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="FUN" data-lang="HI" data-ai-score="80" data-subs="23000000" data-virality="1.4">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/UBZKU_BxrM8','_blank')">
+    <img src="https://i.ytimg.com/vi/UBZKU_BxrM8/maxresdefault.jpg" alt="पत्नी की इज्जत पति के हाथ में होती है 😍🥰 Comedy Shorts #funny #comedy #shorts #t" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/UBZKU_BxrM8/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#31</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/UBZKU_BxrM8" target="_blank">पत्नी की इज्जत पति के हाथ में होती है 😍🥰 Comedy Shorts #funny #comedy #shorts #t</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/wlZKsgL-k1rr6Z6sS-DOedq_POcYCuC10ewx2oYANVv5-Mh56XHn8ktdNEpbhptd8VXp9_UhGg=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Keshav Shashi Vlogs</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">32.5M</span> 播放</div>
+      <div class="metric"><span class="val">23.0M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">1.4x</span> 爆款系数</div>
+      <div class="metric"><span class="val">1.79%</span> 互动率</div>
+      <div class="metric"><span class="val">578.5K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-char">家庭(生活人设)</span>
+<span class="tag tag-lang">HI</span>
+<span class="tag tag-prod">AI-GEN</span>
+<span class="tag tag-ai">AI适配:80</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(80分)；已是AI/动画内容，直接参考</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/UBZKU_BxrM8" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@keshavshashivlogs/videos/UBZKU_BxrM8" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="GAM" data-lang="EN" data-ai-score="95" data-subs="469000" data-virality="70.2">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/zsbLGumJggM','_blank')">
+    <img src="https://i.ytimg.com/vi/zsbLGumJggM/maxresdefault.jpg" alt="chintu ko ladki ne pani se #youtubeshorts #viralshorts #crazygameplay #tranding" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/zsbLGumJggM/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#32</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/zsbLGumJggM" target="_blank">chintu ko ladki ne pani se #youtubeshorts #viralshorts #crazygameplay #tranding</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/r1NhLCqugjIJdQbmLadYCO5y36NTdNMjgV_aEUi3IAMrZgprjzbzhCAoXp_3B9JH0fy2pmznog=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Grill Adda</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">32.9M</span> 播放</div>
+      <div class="metric"><span class="val">469.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">70.2x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.57%</span> 互动率</div>
+      <div class="metric"><span class="val">186.5K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">游戏</span>
+<span class="tag tag-hook">钩子:震惊/夸张</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">SCREEN</span>
+<span class="tag tag-ai">AI适配:95</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(95分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/zsbLGumJggM" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@grilladda/videos/zsbLGumJggM" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="OTH" data-lang="EN" data-ai-score="55" data-subs="63600" data-virality="506.5">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/9fHlE2UU9Z0','_blank')">
+    <img src="https://i.ytimg.com/vi/9fHlE2UU9Z0/maxresdefault.jpg" alt="Haaland 😅" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/9fHlE2UU9Z0/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#33</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/9fHlE2UU9Z0" target="_blank">Haaland 😅</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/XZP7qA9HkxGIloW7H00iZh8ZrJtYjHdA61zjtavRoijQLdNNRaJUZFikXuGMdaUa7zekepKqkLE=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Dooko Go</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">32.2M</span> 播放</div>
+      <div class="metric"><span class="val">63.6K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">506.5x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.52%</span> 互动率</div>
+      <div class="metric"><span class="val">166.8K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">其他</span>
+<span class="tag tag-hook">钩子:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:55</span>
+</div>
+    <div class="reasons">💡 小频道爆款(粉丝63,600, 爆款系数506.5x)；超高爆款系数(506.5x)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/9fHlE2UU9Z0" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@dookogo/videos/9fHlE2UU9Z0" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="MUS" data-lang="EN" data-ai-score="45" data-subs="413000" data-virality="79.9">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/lL-Oqqg_cM4','_blank')">
+    <img src="https://i.ytimg.com/vi/lL-Oqqg_cM4/maxresdefault.jpg" alt="#kpop #kpopdemonhunters #rumi #huntrix" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/lL-Oqqg_cM4/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#34</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/lL-Oqqg_cM4" target="_blank">#kpop #kpopdemonhunters #rumi #huntrix</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/dieFXAou4-4Pez3rMJ_gyLqiQjAjUGt-tLPZAbL4ZT4OqCnJGrX6y299oNEH8cgDrpct3mhuaCg=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">猎魔女团2-Kpop</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">33.0M</span> 播放</div>
+      <div class="metric"><span class="val">413.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">79.9x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.88%</span> 互动率</div>
+      <div class="metric"><span class="val">288.6K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">音乐/舞蹈</span>
+<span class="tag tag-hook">钩子:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:45</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/lL-Oqqg_cM4" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@witchhuntersquad2.0/videos/lL-Oqqg_cM4" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="GAM" data-lang="EN" data-ai-score="100" data-subs="95100" data-virality="378.4">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/LvQBb0WzF6w','_blank')">
+    <img src="https://i.ytimg.com/vi/LvQBb0WzF6w/maxresdefault.jpg" alt="Which 🍉 watermelon  Cross this Circle ⭕#shorts #goingballs #yoytubeshorts #short" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/LvQBb0WzF6w/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#35</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/LvQBb0WzF6w" target="_blank">Which 🍉 watermelon  Cross this Circle ⭕#shorts #goingballs #yoytubeshorts #short</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/WcAw7etCOpGtJSYYcaBzEjZzt2W9Q5y4JSN_HcK4oAxwRVlv_3MFAZ91YQoDGhINHx2wwzNA=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">GOING BLACK TV</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">36.0M</span> 播放</div>
+      <div class="metric"><span class="val">95.1K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">378.4x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.47%</span> 互动率</div>
+      <div class="metric"><span class="val">168.9K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">游戏</span>
+<span class="tag tag-hook">内容:对比对决</span>
+<span class="tag tag-char">Roblox角色(游戏/动漫IP)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">ANIM</span>
+<span class="tag tag-ai">AI适配:100</span>
+</div>
+    <div class="reasons">💡 小频道爆款(粉丝95,100, 爆款系数378.4x)；超高爆款系数(378.4x)；AI动画适配度高(100分)；已是AI/动画内容，直接参考</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/LvQBb0WzF6w" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@going_black_tv/videos/LvQBb0WzF6w" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="ANI" data-lang="EN" data-ai-score="100" data-subs="2190000" data-virality="13.9">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/4EVayuUFsKw','_blank')">
+    <img src="https://i.ytimg.com/vi/4EVayuUFsKw/maxresdefault.jpg" alt="Surgeries In Animal Hospital 😭 #roblox #animalhospital" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/4EVayuUFsKw/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#36</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/4EVayuUFsKw" target="_blank">Surgeries In Animal Hospital 😭 #roblox #animalhospital</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/h-Aj9MOcwtVjm41m02XQ1g84fkWQBpJBWWQdKWgfXTiablU5SzDyhQohdwwBTNuL0k0hukKSDxk=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">narrow</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">30.4M</span> 播放</div>
+      <div class="metric"><span class="val">2.2M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">13.9x</span> 爆款系数</div>
+      <div class="metric"><span class="val">1.9%</span> 互动率</div>
+      <div class="metric"><span class="val">557.0K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">动物/宠物</span>
+<span class="tag tag-hook">钩子:纯表情/标签</span>
+<span class="tag tag-hook">内容:第三人称搞笑</span>
+<span class="tag tag-char">Roblox角色(游戏/动漫IP)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">ANIM</span>
+<span class="tag tag-ai">AI适配:100</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(100分)；已是AI/动画内容，直接参考</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/4EVayuUFsKw" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@nnarow/videos/4EVayuUFsKw" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="STR" data-lang="EN" data-ai-score="90" data-subs="124000" data-virality="244.4">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/wbJZqjSuYsg','_blank')">
+    <img src="https://i.ytimg.com/vi/wbJZqjSuYsg/maxresdefault.jpg" alt="🥶 Adam Sandler Wore A Hoodie To The Oscars" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/wbJZqjSuYsg/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#37</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/wbJZqjSuYsg" target="_blank">🥶 Adam Sandler Wore A Hoodie To The Oscars</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/yQBKwyPkSqB4wc92YUYtLJOMlNX9HO5JUN01Pv-nqDTeZvb3YirKoXN4mv5XUsmbTd9R3Qgx3w=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Coldframe</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">30.3M</span> 播放</div>
+      <div class="metric"><span class="val">124.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">244.4x</span> 爆款系数</div>
+      <div class="metric"><span class="val">2.5%</span> 互动率</div>
+      <div class="metric"><span class="val">753.3K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">故事/剧情</span>
+<span class="tag tag-hook">钩子:纯表情/标签</span>
+<span class="tag tag-hook">内容:叙事型</span>
+<span class="tag tag-char">宝宝/亲子(生活人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">EDIT</span>
+<span class="tag tag-ai">AI适配:90</span>
+</div>
+    <div class="reasons">💡 超高爆款系数(244.4x)；AI动画适配度高(90分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/wbJZqjSuYsg" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@coldframestories/videos/wbJZqjSuYsg" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="ANI" data-lang="EN" data-ai-score="75" data-subs="6560000" data-virality="4.8">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/OM2fNg_ljyU','_blank')">
+    <img src="https://i.ytimg.com/vi/OM2fNg_ljyU/maxresdefault.jpg" alt="The new friend wasn’t so friendly😱 #cat #cats" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/OM2fNg_ljyU/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#38</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/OM2fNg_ljyU" target="_blank">The new friend wasn’t so friendly😱 #cat #cats</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/KM0aH3K2hqiwchM56i8a-bX3WKtu8X3v29mDv0u-w6ULZGIaD2AFjUeJ5_kkZ7QBRnHU-QYl=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Crazy Shiny cat</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">31.3M</span> 播放</div>
+      <div class="metric"><span class="val">6.6M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">4.8x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.68%</span> 互动率</div>
+      <div class="metric"><span class="val">211.5K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">动物/宠物</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-char">猫咪人设(动物)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:75</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/OM2fNg_ljyU" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@crazyshinycat/videos/OM2fNg_ljyU" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="ILL" data-lang="EN" data-ai-score="95" data-subs="14900" data-virality="1990.1">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/xVK1OVANjMo','_blank')">
+    <img src="https://i.ytimg.com/vi/xVK1OVANjMo/maxresdefault.jpg" alt="✂️ Haaland Paper Craft Transformation! 🔥 #haalandbarcelona #shorts" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/xVK1OVANjMo/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#39</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/xVK1OVANjMo" target="_blank">✂️ Haaland Paper Craft Transformation! 🔥 #haalandbarcelona #shorts</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/buFwCdsU-KIyVzqISTmdmf-0J7exUNs8yjGGQ0WWM6wrnOHweR-WZmfTNuZTx1fEbvCPOCsLMg=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">The sagor</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">29.7M</span> 播放</div>
+      <div class="metric"><span class="val">14.9K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">1990.1x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.44%</span> 互动率</div>
+      <div class="metric"><span class="val">129.8K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">视觉错觉/特效</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:95</span>
+</div>
+    <div class="reasons">💡 小频道爆款(粉丝14,900, 爆款系数1990.1x)；超高爆款系数(1990.1x)；AI动画适配度高(95分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/xVK1OVANjMo" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@mrhmm-s1s/videos/xVK1OVANjMo" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="FUN" data-lang="EN" data-ai-score="70" data-subs="33700" data-virality="848.0">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/KVjsjhVa9n0','_blank')">
+    <img src="https://i.ytimg.com/vi/KVjsjhVa9n0/maxresdefault.jpg" alt="Tom Holland & Jon Bernthal’s HILARIOUS BTS Moment! 📉😱 | #Shorts" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/KVjsjhVa9n0/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#40</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/KVjsjhVa9n0" target="_blank">Tom Holland & Jon Bernthal’s HILARIOUS BTS Moment! 📉😱 | #Shorts</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/Qxm_HV4K7JStL7f81U1MHPCfv5zRmRld_cB8rGgkawAHaVSJgT6HuedknCnG-FoR8L1az-O9Kw=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Cine Vault YT</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">28.6M</span> 播放</div>
+      <div class="metric"><span class="val">33.7K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">848.0x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.88%</span> 互动率</div>
+      <div class="metric"><span class="val">250.3K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-char">宝宝/亲子(生活人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">EDIT</span>
+<span class="tag tag-ai">AI适配:70</span>
+</div>
+    <div class="reasons">💡 小频道爆款(粉丝33,700, 爆款系数848.0x)；超高爆款系数(848.0x)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/KVjsjhVa9n0" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@cinevault.mp4/videos/KVjsjhVa9n0" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="STR" data-lang="EN" data-ai-score="90" data-subs="385000" data-virality="76.9">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/cSkotAVruF8','_blank')">
+    <img src="https://i.ytimg.com/vi/cSkotAVruF8/maxresdefault.jpg" alt="#ultra" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/cSkotAVruF8/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#41</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/cSkotAVruF8" target="_blank">#ultra</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/X390tXgvrG0vBzA_DZg5DmImgqWy23qyfLF3UZNpTFwKmqnmebcOzDNw9IivqKnlc7brU25Tuw=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Factovip07</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">29.6M</span> 播放</div>
+      <div class="metric"><span class="val">385.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">76.9x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.61%</span> 互动率</div>
+      <div class="metric"><span class="val">179.5K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">故事/剧情</span>
+<span class="tag tag-hook">钩子:纯表情/标签</span>
+<span class="tag tag-hook">内容:第三人称搞笑</span>
+<span class="tag tag-char">猫咪人设(动物)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">EDIT</span>
+<span class="tag tag-ai">AI适配:90</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(90分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/cSkotAVruF8" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@factovip07/videos/cSkotAVruF8" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="GAM" data-lang="EN" data-ai-score="100" data-subs="71100" data-virality="404.8">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/DvS6aI7cKPU','_blank')">
+    <img src="https://i.ytimg.com/vi/DvS6aI7cKPU/maxresdefault.jpg" alt="Girl Rider Gameplay(8)🤯😲#youtubeshorts" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/DvS6aI7cKPU/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#42</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/DvS6aI7cKPU" target="_blank">Girl Rider Gameplay(8)🤯😲#youtubeshorts</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/r-gYepckyYNC_UJr11Uwy_fKJNiLreYtEmuDKxDsRv7Zsi-hgvB2WmFuTwlJNk5Qs2UoO0RJ=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Bhairuz Effect </span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">28.8M</span> 播放</div>
+      <div class="metric"><span class="val">71.1K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">404.8x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.58%</span> 互动率</div>
+      <div class="metric"><span class="val">166.8K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">游戏</span>
+<span class="tag tag-hook">内容:震惊/夸张</span>
+<span class="tag tag-char">Roblox角色(游戏/动漫IP)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">ANIM</span>
+<span class="tag tag-ai">AI适配:100</span>
+</div>
+    <div class="reasons">💡 小频道爆款(粉丝71,100, 爆款系数404.8x)；超高爆款系数(404.8x)；AI动画适配度高(100分)；已是AI/动画内容，直接参考</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/DvS6aI7cKPU" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@bhairuzeffect/videos/DvS6aI7cKPU" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="STR" data-lang="EN" data-ai-score="90" data-subs="1470000" data-virality="18.8">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/qhoxE7HZ1RI','_blank')">
+    <img src="https://i.ytimg.com/vi/qhoxE7HZ1RI/maxresdefault.jpg" alt="This little moment says everything. 🥹❤️ #shortsfeed #shorts #viralvideo" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/qhoxE7HZ1RI/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#43</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/qhoxE7HZ1RI" target="_blank">This little moment says everything. 🥹❤️ #shortsfeed #shorts #viralvideo</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/duR5RZWAaKTDCvIotjQi8QqpOD6vQoIRTjhYhqLZBvRpib64jM5H4pGijWalsl7hSqnSXZ8S3RI=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">All about your favs</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">27.6M</span> 播放</div>
+      <div class="metric"><span class="val">1.5M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">18.8x</span> 爆款系数</div>
+      <div class="metric"><span class="val">1.13%</span> 互动率</div>
+      <div class="metric"><span class="val">311.6K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">故事/剧情</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-char">家庭(生活人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:90</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(90分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/qhoxE7HZ1RI" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@allabtyourfavs/videos/qhoxE7HZ1RI" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="OTH" data-lang="EN" data-ai-score="55" data-subs="305000" data-virality="88.8">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/fNTQkIYAsf0','_blank')">
+    <img src="https://i.ytimg.com/vi/fNTQkIYAsf0/maxresdefault.jpg" alt="iPhone 18 Pro Max Dark Cherry📱🫶#noads #tiktok #usa" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/fNTQkIYAsf0/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#44</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/fNTQkIYAsf0" target="_blank">iPhone 18 Pro Max Dark Cherry📱🫶#noads #tiktok #usa</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/7vrplyidOUBQ-zGRBhpU23AfWZaAZSvXkP76HVnZgiAepZgSteEFb8uo2toXtgoTfti7Qwfp=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Jamaika_6_7</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">27.1M</span> 播放</div>
+      <div class="metric"><span class="val">305.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">88.8x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.38%</span> 互动率</div>
+      <div class="metric"><span class="val">103.5K</span> 点赞</div>
+      <div class="metric"><span class="val">5天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">其他</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:55</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/fNTQkIYAsf0" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@jamaika_6_7/videos/fNTQkIYAsf0" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="STR" data-lang="EN" data-ai-score="100" data-subs="93900" data-virality="286.7">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/Bp-NTdN15p0','_blank')">
+    <img src="https://i.ytimg.com/vi/Bp-NTdN15p0/maxresdefault.jpg" alt="Pov:- "This happens when you drink Red bull."🔥#successmindset #motivation #money" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/Bp-NTdN15p0/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#45</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/Bp-NTdN15p0" target="_blank">Pov:- "This happens when you drink Red bull."🔥#successmindset #motivation #money</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/2T0FLRhzvw96ynN53d0O0pJeso-KFA7URi4SE_cNvHKa-pYH0sQAEmN8aSJ8twv_0eCVy4iK=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Hxlar</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">26.9M</span> 播放</div>
+      <div class="metric"><span class="val">93.9K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">286.7x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.84%</span> 互动率</div>
+      <div class="metric"><span class="val">222.9K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">故事/剧情</span>
+<span class="tag tag-hook">钩子:第三人称搞笑</span>
+<span class="tag tag-hook">内容:反转/等结尾</span>
+<span class="tag tag-char">宝宝/亲子(生活人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">ANIM</span>
+<span class="tag tag-ai">AI适配:100</span>
+</div>
+    <div class="reasons">💡 小频道爆款(粉丝93,900, 爆款系数286.7x)；超高爆款系数(286.7x)；AI动画适配度高(100分)；已是AI/动画内容，直接参考</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/Bp-NTdN15p0" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@hxlar/videos/Bp-NTdN15p0" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="FUN" data-lang="EN" data-ai-score="70" data-subs="1210000" data-virality="21.9">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/K_4dEQu2jCM','_blank')">
+    <img src="https://i.ytimg.com/vi/K_4dEQu2jCM/maxresdefault.jpg" alt="Mere se chalaki nhi chalegi#funny #vairlreel #varshapushptode #bhai#mushroom" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/K_4dEQu2jCM/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#46</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/K_4dEQu2jCM" target="_blank">Mere se chalaki nhi chalegi#funny #vairlreel #varshapushptode #bhai#mushroom</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/1TaDVge8jKbnmq3_3i1rD_8MwIy522EWvoJ1-ujgSwixoK0DulS2frntf_ggYY1oq_F26SlGRQ=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Varsha Pushptode</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">26.5M</span> 播放</div>
+      <div class="metric"><span class="val">1.2M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">21.9x</span> 爆款系数</div>
+      <div class="metric"><span class="val">1.3%</span> 互动率</div>
+      <div class="metric"><span class="val">344.8K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-hook">钩子:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:70</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/K_4dEQu2jCM" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@varshapushptode07/videos/K_4dEQu2jCM" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="EDU" data-lang="HI" data-ai-score="90" data-subs="4900000" data-virality="5.5">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/ZL484S-AnGU','_blank')">
+    <img src="https://i.ytimg.com/vi/ZL484S-AnGU/maxresdefault.jpg" alt="बात हमेशा ध्यान रखना😱                             #facts #knowledge #education #" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/ZL484S-AnGU/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#47</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/ZL484S-AnGU" target="_blank">बात हमेशा ध्यान रखना😱                             #facts #knowledge #education #</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/mcxnEBurWcOvbkIS7Mpy1WN940u9H6UXMmEbVbZGDOl_CElPvJlDGn6N8rd6GX-PzZu94cziLw=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Vedant Sir</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">27.2M</span> 播放</div>
+      <div class="metric"><span class="val">4.9M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">5.5x</span> 爆款系数</div>
+      <div class="metric"><span class="val">2.27%</span> 互动率</div>
+      <div class="metric"><span class="val">614.3K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">科普/知识</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-char">猫咪人设(动物)</span>
+<span class="tag tag-lang">HI</span>
+<span class="tag tag-ai">AI适配:90</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(90分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/ZL484S-AnGU" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@vedantsir_/videos/ZL484S-AnGU" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="OTH" data-lang="EN" data-ai-score="55" data-subs="901000" data-virality="29.1">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/G_TfTY7P-gI','_blank')">
+    <img src="https://i.ytimg.com/vi/G_TfTY7P-gI/maxresdefault.jpg" alt="The most innocent misunderstanding 🥹❤️" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/G_TfTY7P-gI/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#48</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/G_TfTY7P-gI" target="_blank">The most innocent misunderstanding 🥹❤️</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/PkuSVD2UlV8x0zxq-ufcLJ9cv_uHNgTgemof3JgPOtQiABmh2wI5CGAgGM1GDKrkmiRzHkj6Og=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">lecreerus</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">26.2M</span> 播放</div>
+      <div class="metric"><span class="val">901.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">29.1x</span> 爆款系数</div>
+      <div class="metric"><span class="val">1.08%</span> 互动率</div>
+      <div class="metric"><span class="val">277.3K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">其他</span>
+<span class="tag tag-char">宝宝/亲子(生活人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:55</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/G_TfTY7P-gI" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@lecreerus/videos/G_TfTY7P-gI" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="OTH" data-lang="EN" data-ai-score="55" data-subs="485000" data-virality="55.8">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/gtYA9ClVCu4','_blank')">
+    <img src="https://i.ytimg.com/vi/gtYA9ClVCu4/maxresdefault.jpg" alt="I Didn’t Mean To Do This!😳" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/gtYA9ClVCu4/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#49</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/gtYA9ClVCu4" target="_blank">I Didn’t Mean To Do This!😳</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/VujjCxCPMuoj_xp81h36ORjnisyoCcqcssL5i5tqcBiZnOocb_jMJAWvoX3eVV9Rz_BKuew6sg=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Lemya Star</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">27.1M</span> 播放</div>
+      <div class="metric"><span class="val">485.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">55.8x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.27%</span> 互动率</div>
+      <div class="metric"><span class="val">72.3K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">其他</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:55</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/gtYA9ClVCu4" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@lemyastar/videos/gtYA9ClVCu4" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="FUN" data-lang="EN" data-ai-score="70" data-subs="1090000" data-virality="23.5">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/_h9Rs5qDUNA','_blank')">
+    <img src="https://i.ytimg.com/vi/_h9Rs5qDUNA/maxresdefault.jpg" alt="Phir har gaya😭|#viral #funny #comedy #youtubeshorts #trending #shorts #short #yt" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/_h9Rs5qDUNA/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#50</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/_h9Rs5qDUNA" target="_blank">Phir har gaya😭|#viral #funny #comedy #youtubeshorts #trending #shorts #short #yt</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/mA4TpmgaoRXZr9XhWJHbFP_pXwf1I5Hgch4bML-QjZ4oxdNi9jGwpdMMIT1vk0ALBdb5T1S1pb0=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Abhijeet Singhania</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">25.6M</span> 播放</div>
+      <div class="metric"><span class="val">1.1M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">23.5x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.47%</span> 互动率</div>
+      <div class="metric"><span class="val">119.0K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-hook">内容:震惊/夸张</span>
+<span class="tag tag-char">情侣(生活人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:70</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/_h9Rs5qDUNA" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@abhijeetsinghania/videos/_h9Rs5qDUNA" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="ANI" data-lang="EN" data-ai-score="75" data-subs="352000" data-virality="72.1">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/7EFqa9gpQFc','_blank')">
+    <img src="https://i.ytimg.com/vi/7EFqa9gpQFc/maxresdefault.jpg" alt="Pria Ini Berlatih Agar Kebal Peluru! ⚗ @swholeanimal" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/7EFqa9gpQFc/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#51</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/7EFqa9gpQFc" target="_blank">Pria Ini Berlatih Agar Kebal Peluru! ⚗ @swholeanimal</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/IMAlXL_KOQBpUzPENfZlfTEZ5zpapdjlBKGJre0XFX_UUvSoO30NeDEz8DQV_BI2gBe7M1hKQVQ=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Senapye</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">25.4M</span> 播放</div>
+      <div class="metric"><span class="val">352.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">72.1x</span> 爆款系数</div>
+      <div class="metric"><span class="val">1.17%</span> 互动率</div>
+      <div class="metric"><span class="val">295.3K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">动物/宠物</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:75</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/7EFqa9gpQFc" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@senapye/videos/7EFqa9gpQFc" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="FUN" data-lang="EN" data-ai-score="70" data-subs="7990000" data-virality="3.3">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/vlzOBCHE-Jc','_blank')">
+    <img src="https://i.ytimg.com/vi/vlzOBCHE-Jc/maxresdefault.jpg" alt="Wait for last #shorts #viral #trending #comedy #thimingalam #whatsappstatus" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/vlzOBCHE-Jc/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#52</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/vlzOBCHE-Jc" target="_blank">Wait for last #shorts #viral #trending #comedy #thimingalam #whatsappstatus</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/vQalllbq5E76ZienyCiprV9PHASti3VVN8o3b0X2YUkj93T2pfssgz2bpT4--Nj-Z6fCLJJ0AA=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Thimingalam </span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">26.3M</span> 播放</div>
+      <div class="metric"><span class="val">8.0M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">3.3x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.51%</span> 互动率</div>
+      <div class="metric"><span class="val">132.7K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-hook">钩子:反转/等结尾</span>
+<span class="tag tag-char">家庭(生活人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:70</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/vlzOBCHE-Jc" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@thimingalam4176/videos/vlzOBCHE-Jc" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="OTH" data-lang="VI" data-ai-score="50" data-subs="174000" data-virality="145.7">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/sTi8_GiHbsY','_blank')">
+    <img src="https://i.ytimg.com/vi/sTi8_GiHbsY/maxresdefault.jpg" alt="Çok Üzgünüm Bebeğim 😱😭🥹😍😇" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/sTi8_GiHbsY/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#53</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/sTi8_GiHbsY" target="_blank">Çok Üzgünüm Bebeğim 😱😭🥹😍😇</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/e4aNaTNpnSMatu_BD14qnlbwQIX1DHlQlaCh64U6bO6oePUK0tnUq1FkGV7AMgM_DSgQ2vfmyQ=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Eslem and hilal</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">25.3M</span> 播放</div>
+      <div class="metric"><span class="val">174.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">145.7x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.56%</span> 互动率</div>
+      <div class="metric"><span class="val">141.3K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">其他</span>
+<span class="tag tag-hook">钩子:纯表情/标签</span>
+<span class="tag tag-lang">VI</span>
+<span class="tag tag-ai">AI适配:50</span>
+</div>
+    <div class="reasons">💡 超高爆款系数(145.7x)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/sTi8_GiHbsY" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@eslemandhilal/videos/sTi8_GiHbsY" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="ANI" data-lang="EN" data-ai-score="85" data-subs="381000" data-virality="68.0">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/Lb0Y0Cr5_KY','_blank')">
+    <img src="https://i.ytimg.com/vi/Lb0Y0Cr5_KY/maxresdefault.jpg" alt="duckman dance 😂 - Animal Hospital (Anomaly)  Roblox Funny Meme #roblox #funny" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/Lb0Y0Cr5_KY/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#54</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/Lb0Y0Cr5_KY" target="_blank">duckman dance 😂 - Animal Hospital (Anomaly)  Roblox Funny Meme #roblox #funny</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/Ri8Lkw87Qnqf-dfA-jv1QYNT3Uyb-0pvUpVnkexl0vfbWlhJrdCJG8gBceugdtxGHvD7cQtZZg=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">BOOSBUG</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">25.9M</span> 播放</div>
+      <div class="metric"><span class="val">381.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">68.0x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.39%</span> 互动率</div>
+      <div class="metric"><span class="val">99.6K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">动物/宠物</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-char">Roblox角色(游戏/动漫IP)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:85</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(85分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/Lb0Y0Cr5_KY" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@boosbug/videos/Lb0Y0Cr5_KY" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="STR" data-lang="NO-LANG" data-ai-score="95" data-subs="602000" data-virality="44.5">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/O8gm0_H6zOU','_blank')">
+    <img src="https://i.ytimg.com/vi/O8gm0_H6zOU/maxresdefault.jpg" alt="#edit" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/O8gm0_H6zOU/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#55</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/O8gm0_H6zOU" target="_blank">#edit</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/M3A9rMg0rZQKxNBrBmhyAybVusZE6oQHAvKbzVMHlJb99YyBENbAKoZwiCZCaDdg2crEdZLJD6w=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Hello Priyansh </span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">26.8M</span> 播放</div>
+      <div class="metric"><span class="val">602.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">44.5x</span> 爆款系数</div>
+      <div class="metric"><span class="val">2.26%</span> 互动率</div>
+      <div class="metric"><span class="val">603.9K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">故事/剧情</span>
+<span class="tag tag-hook">钩子:纯表情/标签</span>
+<span class="tag tag-char">家庭(生活人设)</span>
+<span class="tag tag-lang">NO-LANG</span>
+<span class="tag tag-prod">EDIT</span>
+<span class="tag tag-ai">AI适配:95</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(95分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/O8gm0_H6zOU" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@hellopriyansh732/videos/O8gm0_H6zOU" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="QIZ" data-lang="EN" data-ai-score="95" data-subs="66900" data-virality="399.9">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/maXY5wgRqr8','_blank')">
+    <img src="https://i.ytimg.com/vi/maXY5wgRqr8/maxresdefault.jpg" alt="Who Is The Cutest Tiny Anomaly😘" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/maXY5wgRqr8/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#56</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/maXY5wgRqr8" target="_blank">Who Is The Cutest Tiny Anomaly😘</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/iiTLBg2a6pOgM1n_rgN2cu4F9fo2sbNn8hGy5pGmsalUOym0O0_KB_7D-sRidvMQDVK35ugauw=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">GuguGaga MC</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">26.8M</span> 播放</div>
+      <div class="metric"><span class="val">66.9K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">399.9x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.42%</span> 互动率</div>
+      <div class="metric"><span class="val">111.6K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">猜谜/互动</span>
+<span class="tag tag-hook">钩子:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:95</span>
+</div>
+    <div class="reasons">💡 小频道爆款(粉丝66,900, 爆款系数399.9x)；超高爆款系数(399.9x)；AI动画适配度高(95分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/maXY5wgRqr8" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@itsgugugagamc/videos/maXY5wgRqr8" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="DIY" data-lang="EN" data-ai-score="80" data-subs="95700" data-virality="255.4">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/hjLv_Z2KskI','_blank')">
+    <img src="https://i.ytimg.com/vi/hjLv_Z2KskI/maxresdefault.jpg" alt="iPhone 18 Pro Max Dark Cherry📱🫶#noads #tiktok #usa Part 111" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/hjLv_Z2KskI/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#57</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/hjLv_Z2KskI" target="_blank">iPhone 18 Pro Max Dark Cherry📱🫶#noads #tiktok #usa Part 111</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/sDBlz_LxWDH0cqRyqgfuMgiNKea7pIQe8EziacoLp2b5Xj3zDhJ-nx9dNHONhJDOvWp8vKBe6Q=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Mr Tungtungsahur Blue </span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">24.4M</span> 播放</div>
+      <div class="metric"><span class="val">95.7K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">255.4x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.38%</span> 互动率</div>
+      <div class="metric"><span class="val">93.1K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">手工/创意</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:80</span>
+</div>
+    <div class="reasons">💡 小频道爆款(粉丝95,700, 爆款系数255.4x)；超高爆款系数(255.4x)；AI动画适配度高(80分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/hjLv_Z2KskI" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@mrtungtungsahurblue/videos/hjLv_Z2KskI" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="ANI" data-lang="EN" data-ai-score="100" data-subs="28100000" data-virality="0.9">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/i6GW7icovW8','_blank')">
+    <img src="https://i.ytimg.com/vi/i6GW7icovW8/maxresdefault.jpg" alt="The Intern Secret 👀 - ANIMAL HOSPITAL | ROBLOX ANIMATION" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/i6GW7icovW8/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#58</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/i6GW7icovW8" target="_blank">The Intern Secret 👀 - ANIMAL HOSPITAL | ROBLOX ANIMATION</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/EIgEVfLNXj7LHM98mXOoG0mBE_7nsL6Pf9wjfiofqF5Un9akWxLbTIRZtasy3jd_WcaJmQxk=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">GH'S</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">24.3M</span> 播放</div>
+      <div class="metric"><span class="val">28.1M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">0.9x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.96%</span> 互动率</div>
+      <div class="metric"><span class="val">232.6K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">动物/宠物</span>
+<span class="tag tag-char">Roblox角色(游戏/动漫IP)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">ANIM</span>
+<span class="tag tag-ai">AI适配:100</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(100分)；已是AI/动画内容，直接参考</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/i6GW7icovW8" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@gh.s/videos/i6GW7icovW8" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="STR" data-lang="EN" data-ai-score="90" data-subs="692000" data-virality="35.8">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/z9Eoa0GjjSA','_blank')">
+    <img src="https://i.ytimg.com/vi/z9Eoa0GjjSA/maxresdefault.jpg" alt="Jaz helped herself to get out of danger - nursery rhymes and songs" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/z9Eoa0GjjSA/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#59</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/z9Eoa0GjjSA" target="_blank">Jaz helped herself to get out of danger - nursery rhymes and songs</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/2TDs0-F5c4PcgXOiuDWgG-8kAYXoIMVfYSCXZEscRDY-hketNLx9CYXMJdeachnLe0_UNpQDThA=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Jaz Kids Show</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">24.7M</span> 播放</div>
+      <div class="metric"><span class="val">692.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">35.8x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.59%</span> 互动率</div>
+      <div class="metric"><span class="val">146.4K</span> 点赞</div>
+      <div class="metric"><span class="val">5天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">故事/剧情</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-char">宝宝/亲子(生活人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:90</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(90分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/z9Eoa0GjjSA" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@jazkidsshow/videos/z9Eoa0GjjSA" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="OTH" data-lang="EN" data-ai-score="55" data-subs="159000" data-virality="153.3">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/L2VX7kb3LzI','_blank')">
+    <img src="https://i.ytimg.com/vi/L2VX7kb3LzI/maxresdefault.jpg" alt="iPhone 18 Pro Max Dark Cherry📱🫶#noads #tiktok #usa" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/L2VX7kb3LzI/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#60</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/L2VX7kb3LzI" target="_blank">iPhone 18 Pro Max Dark Cherry📱🫶#noads #tiktok #usa</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/nGQBWCzTEWPhtsnjbuou9NZzXjMsZZqP440ff-8N8zwoNqlb5iuqdNalxEld1Ed-5jY-PJ5l=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Dark Arun </span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">24.4M</span> 播放</div>
+      <div class="metric"><span class="val">159.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">153.3x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.33%</span> 互动率</div>
+      <div class="metric"><span class="val">79.5K</span> 点赞</div>
+      <div class="metric"><span class="val">5天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">其他</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:55</span>
+</div>
+    <div class="reasons">💡 超高爆款系数(153.3x)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/L2VX7kb3LzI" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@darkarun-l9p/videos/L2VX7kb3LzI" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="FUN" data-lang="EN" data-ai-score="70" data-subs="32200000" data-virality="0.7">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/jANisgFESeo','_blank')">
+    <img src="https://i.ytimg.com/vi/jANisgFESeo/maxresdefault.jpg" alt="What’s your favourite Haaland meme? 🤣⚽️🇳🇴" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/jANisgFESeo/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#61</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/jANisgFESeo" target="_blank">What’s your favourite Haaland meme? 🤣⚽️🇳🇴</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/rPKAl8x9uAQpcSUC-b4MJnZoLcEZEv0P33u1h9VcgSSh5gFXXbI_ptzJhA9Tpih8inxbz4N9KQc=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Andrey Grechka</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">24.1M</span> 播放</div>
+      <div class="metric"><span class="val">32.2M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">0.7x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.5%</span> 互动率</div>
+      <div class="metric"><span class="val">119.7K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:70</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/jANisgFESeo" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@andrey.grechka/videos/jANisgFESeo" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="OTH" data-lang="EN" data-ai-score="55" data-subs="451000" data-virality="53.3">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/Pnw-Fjq3wTQ','_blank')">
+    <img src="https://i.ytimg.com/vi/Pnw-Fjq3wTQ/maxresdefault.jpg" alt="Siblings Be like… Give Me That" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/Pnw-Fjq3wTQ/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#62</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/Pnw-Fjq3wTQ" target="_blank">Siblings Be like… Give Me That</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/IcKbbmTwOvl4MRntSvKiO-7JCdDH9CAuV426AmbvXwYSNC5eRUQpW667hp2AqdgqmdNQ3A00=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">UncDennis</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">24.0M</span> 播放</div>
+      <div class="metric"><span class="val">451.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">53.3x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.43%</span> 互动率</div>
+      <div class="metric"><span class="val">103.7K</span> 点赞</div>
+      <div class="metric"><span class="val">5天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">其他</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:55</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/Pnw-Fjq3wTQ" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@uncdennis/videos/Pnw-Fjq3wTQ" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="FUN" data-lang="EN" data-ai-score="70" data-subs="41300000" data-virality="0.6">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/JGR443Og1dk','_blank')">
+    <img src="https://i.ytimg.com/vi/JGR443Og1dk/maxresdefault.jpg" alt="SUBSCRIBE FOR 7 YEARS OF GOOD LUCK! 🍀😅 - #dance #funny #couple #shorts" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/JGR443Og1dk/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#63</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/JGR443Og1dk" target="_blank">SUBSCRIBE FOR 7 YEARS OF GOOD LUCK! 🍀😅 - #dance #funny #couple #shorts</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/p6m2y5Nu_9JqbspZwCordjbf_hrrLEcWtcNNFbWNfdKCM2R2PcTKYuV1lFiHr-kEDk88x8uZ=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Jasmin and James</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">23.8M</span> 播放</div>
+      <div class="metric"><span class="val">41.3M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">0.6x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.59%</span> 互动率</div>
+      <div class="metric"><span class="val">141.1K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-char">情侣(生活人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:70</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/JGR443Og1dk" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@jasminandjames/videos/JGR443Og1dk" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="OTH" data-lang="EN" data-ai-score="55" data-subs="16100000" data-virality="1.5">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/bxS3nXjJdkI','_blank')">
+    <img src="https://i.ytimg.com/vi/bxS3nXjJdkI/maxresdefault.jpg" alt="Aletha Abew Tiru Suara Orang Bersin #alethaabew" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/bxS3nXjJdkI/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#64</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/bxS3nXjJdkI" target="_blank">Aletha Abew Tiru Suara Orang Bersin #alethaabew</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/m_qzdEDw7MmIeEToObN6XzV46htYaJhL6giVXoRZe9f6bDsKmUiwPUe9G8fJtYYR0qgMxVMiFA=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Aletha Abew</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">24.0M</span> 播放</div>
+      <div class="metric"><span class="val">16.1M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">1.5x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.68%</span> 互动率</div>
+      <div class="metric"><span class="val">163.8K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">其他</span>
+<span class="tag tag-hook">钩子:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:55</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/bxS3nXjJdkI" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@alethaabew/videos/bxS3nXjJdkI" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="SAT" data-lang="EN" data-ai-score="100" data-subs="9420" data-virality="2596.0">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/0yC0TZsoOTo','_blank')">
+    <img src="https://i.ytimg.com/vi/0yC0TZsoOTo/maxresdefault.jpg" alt="Satisfying Unboxing Super Mario Bros - Mario and Shin cute toys ASMR Video #mari" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/0yC0TZsoOTo/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#65</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/0yC0TZsoOTo" target="_blank">Satisfying Unboxing Super Mario Bros - Mario and Shin cute toys ASMR Video #mari</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/cb1PLD8oGb8FMuWTs4sW1gawabyVb-voTGiwTOQvKmKfatnAXNFaTMkpRHb3HleRpAeoEEK1Mg=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">CARTOON VIEW</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">24.5M</span> 播放</div>
+      <div class="metric"><span class="val">9.4K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">2596.0x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.36%</span> 互动率</div>
+      <div class="metric"><span class="val">87.0K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">解压/满足感</span>
+<span class="tag tag-hook">内容:教程/方法</span>
+<span class="tag tag-char">Mario角色(游戏/动漫IP)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">ANIM</span>
+<span class="tag tag-ai">AI适配:100</span>
+</div>
+    <div class="reasons">💡 小频道爆款(粉丝9,420, 爆款系数2596.0x)；超高爆款系数(2596.0x)；AI动画适配度高(100分)；已是AI/动画内容，直接参考</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/0yC0TZsoOTo" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@cartoonview28/videos/0yC0TZsoOTo" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="FUN" data-lang="EN" data-ai-score="85" data-subs="47400" data-virality="495.8">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/CeMUS28rx6k','_blank')">
+    <img src="https://i.ytimg.com/vi/CeMUS28rx6k/maxresdefault.jpg" alt="Mouse Makes a Realistic Stone Mouse to Trick the Cat! 😂🪨 #StopMotion #Funny" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/CeMUS28rx6k/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#66</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/CeMUS28rx6k" target="_blank">Mouse Makes a Realistic Stone Mouse to Trick the Cat! 😂🪨 #StopMotion #Funny</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/ZtJOQhxN6h4-gTBCMc_AB44fnEHwI2QG1y9ElwH11kZT5wHAZavaTKsUlPiwyHpp6YWBp20ZBBA=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Colt & Monty</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">23.5M</span> 播放</div>
+      <div class="metric"><span class="val">47.4K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">495.8x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.51%</span> 互动率</div>
+      <div class="metric"><span class="val">118.7K</span> 点赞</div>
+      <div class="metric"><span class="val">5天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-hook">内容:对比对决</span>
+<span class="tag tag-char">猫咪人设(动物)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">ANIM</span>
+<span class="tag tag-ai">AI适配:85</span>
+</div>
+    <div class="reasons">💡 小频道爆款(粉丝47,400, 爆款系数495.8x)；超高爆款系数(495.8x)；AI动画适配度高(85分)；已是AI/动画内容，直接参考</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/CeMUS28rx6k" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@coltandmonty/videos/CeMUS28rx6k" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="GAM" data-lang="EN" data-ai-score="100" data-subs="804000" data-virality="29.1">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/6YBy3_yn_w4','_blank')">
+    <img src="https://i.ytimg.com/vi/6YBy3_yn_w4/maxresdefault.jpg" alt="Princess Peach is just too hilarious.#short #Mario #SuperMario" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/6YBy3_yn_w4/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#67</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/6YBy3_yn_w4" target="_blank">Princess Peach is just too hilarious.#short #Mario #SuperMario</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/_B5dhUn7B_XQnvRbkCGROIKrSb5zM6zRNYmTq-ggpTPyTACVsHT3fxzqF-XzhHb_5P7GQlzl=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">马里奥奇趣乐园</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">23.4M</span> 播放</div>
+      <div class="metric"><span class="val">804.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">29.1x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.45%</span> 互动率</div>
+      <div class="metric"><span class="val">104.8K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">游戏</span>
+<span class="tag tag-char">Mario角色(游戏/动漫IP)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:100</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(100分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/6YBy3_yn_w4" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@mariopark888/videos/6YBy3_yn_w4" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="EDU" data-lang="EN" data-ai-score="100" data-subs="220000" data-virality="108.2">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/K22x0gdHQWw','_blank')">
+    <img src="https://i.ytimg.com/vi/K22x0gdHQWw/maxresdefault.jpg" alt="Kids Learn To Fix Their Mistakes 💻" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/K22x0gdHQWw/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#68</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/K22x0gdHQWw" target="_blank">Kids Learn To Fix Their Mistakes 💻</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/-nYm3Y6XKQqlvLintPhIr7Anun6OGgrvqJT4QXQldvpKbGzPYp4F59FSZep5hhMnsaddJ0Ok=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">BabyBillion 2.0</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">23.8M</span> 播放</div>
+      <div class="metric"><span class="val">220.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">108.2x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.87%</span> 互动率</div>
+      <div class="metric"><span class="val">206.9K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">科普/知识</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-char">宝宝/亲子(生活人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">ANIM</span>
+<span class="tag tag-ai">AI适配:100</span>
+</div>
+    <div class="reasons">💡 超高爆款系数(108.2x)；AI动画适配度高(100分)；已是AI/动画内容，直接参考</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/K22x0gdHQWw" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@babybillion_2.0/videos/K22x0gdHQWw" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="OTH" data-lang="EN" data-ai-score="55" data-subs="32200000" data-virality="0.7">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/F2WWtBNnwRA','_blank')">
+    <img src="https://i.ytimg.com/vi/F2WWtBNnwRA/maxresdefault.jpg" alt="I Left my GF for Jenny from BlackPink 😱🖤🩷" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/F2WWtBNnwRA/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#69</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/F2WWtBNnwRA" target="_blank">I Left my GF for Jenny from BlackPink 😱🖤🩷</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/rPKAl8x9uAQpcSUC-b4MJnZoLcEZEv0P33u1h9VcgSSh5gFXXbI_ptzJhA9Tpih8inxbz4N9KQc=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Andrey Grechka</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">22.9M</span> 播放</div>
+      <div class="metric"><span class="val">32.2M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">0.7x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.6%</span> 互动率</div>
+      <div class="metric"><span class="val">138.2K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">其他</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-char">情侣(生活人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:55</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/F2WWtBNnwRA" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@andrey.grechka/videos/F2WWtBNnwRA" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="STR" data-lang="EN" data-ai-score="90" data-subs="7180000" data-virality="3.3">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/SBe9OMRth_Q','_blank')">
+    <img src="https://i.ytimg.com/vi/SBe9OMRth_Q/maxresdefault.jpg" alt="Behind every medal is a story no one saw" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/SBe9OMRth_Q/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#70</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/SBe9OMRth_Q" target="_blank">Behind every medal is a story no one saw</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/XCwMjd_AtUpmfGKbA-unMOlcNpgMW3SFF6eZzd73uWBmUAqLKeWxlTz4hr_dq7qt3FahHELsobk=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Fit Arshia</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">23.9M</span> 播放</div>
+      <div class="metric"><span class="val">7.2M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">3.3x</span> 爆款系数</div>
+      <div class="metric"><span class="val">1.14%</span> 互动率</div>
+      <div class="metric"><span class="val">271.5K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">故事/剧情</span>
+<span class="tag tag-hook">钩子:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:90</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(90分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/SBe9OMRth_Q" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@fit_arshia/videos/SBe9OMRth_Q" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="DIY" data-lang="EN" data-ai-score="80" data-subs="154000" data-virality="147.9">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/W8_icWo0Qik','_blank')">
+    <img src="https://i.ytimg.com/vi/W8_icWo0Qik/maxresdefault.jpg" alt="Handcrafting a Luxury Bentley Mulsanne Out of Wood | Master Craftsman#BentleyMul" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/W8_icWo0Qik/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#71</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/W8_icWo0Qik" target="_blank">Handcrafting a Luxury Bentley Mulsanne Out of Wood | Master Craftsman#BentleyMul</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/qFQ1V-AhbuXcmuMxWDdU8dTIMYe4NWs_oDbpYnzd5iLuoE-XAq725j1yBQBMpCVsFwWWWgG1yA=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Carve & Craft Hub 17</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">22.8M</span> 播放</div>
+      <div class="metric"><span class="val">154.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">147.9x</span> 爆款系数</div>
+      <div class="metric"><span class="val">2.87%</span> 互动率</div>
+      <div class="metric"><span class="val">650.1K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">手工/创意</span>
+<span class="tag tag-hook">内容:教程/方法</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:80</span>
+</div>
+    <div class="reasons">💡 超高爆款系数(147.9x)；AI动画适配度高(80分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/W8_icWo0Qik" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@carve.crafthub17/videos/W8_icWo0Qik" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="STR" data-lang="EN" data-ai-score="100" data-subs="361000" data-virality="64.7">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/4wdAoCdBoJI','_blank')">
+    <img src="https://i.ytimg.com/vi/4wdAoCdBoJI/maxresdefault.jpg" alt="JESUS VS all the VILLAINS #edit #jesuschrist #jesuslovesyou #jesusfreak" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/4wdAoCdBoJI/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#72</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/4wdAoCdBoJI" target="_blank">JESUS VS all the VILLAINS #edit #jesuschrist #jesuslovesyou #jesusfreak</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/r-mEXSJmDcXN4uvpc1bHpwZsdXQ-cg0BLV289gZD4mmNonHOecKkKDiN1ouMYJtE6yE0VozMBw=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name"> Propósito Eterno</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">23.3M</span> 播放</div>
+      <div class="metric"><span class="val">361.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">64.7x</span> 爆款系数</div>
+      <div class="metric"><span class="val">1.63%</span> 互动率</div>
+      <div class="metric"><span class="val">370.2K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">故事/剧情</span>
+<span class="tag tag-hook">钩子:对比对决</span>
+<span class="tag tag-char">Among Us(游戏/动漫IP)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">EDIT</span>
+<span class="tag tag-ai">AI适配:100</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(100分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/4wdAoCdBoJI" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@eternopropositoyt/videos/4wdAoCdBoJI" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="EMO" data-lang="AR" data-ai-score="80" data-subs="380000" data-virality="59.1">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/sI4Fuzz7PW0','_blank')">
+    <img src="https://i.ytimg.com/vi/sI4Fuzz7PW0/maxresdefault.jpg" alt="كم من موقفٍ يمرّ  ويترك في القلب يقينًا بأن لطف الله أعظم من كل سبب#اكسبلور#shor" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/sI4Fuzz7PW0/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#73</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/sI4Fuzz7PW0" target="_blank">كم من موقفٍ يمرّ  ويترك في القلب يقينًا بأن لطف الله أعظم من كل سبب#اكسبلور#shor</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/qZnJRFBywKWRs7cJ4f7vBtlmO1Dfo0H5Mp_NcxtfOG_m6EFANbX0qzzdCvL-FgvEa1MndS7cCg=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Jacob David </span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">22.5M</span> 播放</div>
+      <div class="metric"><span class="val">380.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">59.1x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.14%</span> 互动率</div>
+      <div class="metric"><span class="val">31.2K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">情感/治愈</span>
+<span class="tag tag-lang">AR</span>
+<span class="tag tag-ai">AI适配:80</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(80分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/sI4Fuzz7PW0" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@jacobdavid-n7k/videos/sI4Fuzz7PW0" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="CMP" data-lang="EN" data-ai-score="100" data-subs="212000" data-virality="105.4">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/D2-AFtgJNdQ','_blank')">
+    <img src="https://i.ytimg.com/vi/D2-AFtgJNdQ/maxresdefault.jpg" alt="Java VS Bedrock!" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/D2-AFtgJNdQ/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#74</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/D2-AFtgJNdQ" target="_blank">Java VS Bedrock!</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/O5elHGS7-LUFPUZS6n8lCQNCcgwJV86nFYyobfmCp8jXEY-SEz1dv8hdnQnNiepoN4J87T7Vj5c=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">AFK Fennix</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">22.3M</span> 播放</div>
+      <div class="metric"><span class="val">212.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">105.4x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.73%</span> 互动率</div>
+      <div class="metric"><span class="val">162.5K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">对比/排行</span>
+<span class="tag tag-hook">钩子:对比对决</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-char">Minecraft角色(游戏/动漫IP)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:100</span>
+</div>
+    <div class="reasons">💡 超高爆款系数(105.4x)；AI动画适配度高(100分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/D2-AFtgJNdQ" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@afk.fennix/videos/D2-AFtgJNdQ" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="STR" data-lang="EN" data-ai-score="90" data-subs="1470000" data-virality="15.4">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/FqoicpIYZgs','_blank')">
+    <img src="https://i.ytimg.com/vi/FqoicpIYZgs/maxresdefault.jpg" alt="Tarak Mehta's real-life house 😍❤️ #shortsfeed #shorts #viralvideo" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/FqoicpIYZgs/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#75</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/FqoicpIYZgs" target="_blank">Tarak Mehta's real-life house 😍❤️ #shortsfeed #shorts #viralvideo</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/duR5RZWAaKTDCvIotjQi8QqpOD6vQoIRTjhYhqLZBvRpib64jM5H4pGijWalsl7hSqnSXZ8S3RI=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">All about your favs</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">22.6M</span> 播放</div>
+      <div class="metric"><span class="val">1.5M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">15.4x</span> 爆款系数</div>
+      <div class="metric"><span class="val">1.1%</span> 互动率</div>
+      <div class="metric"><span class="val">248.6K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">故事/剧情</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:90</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(90分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/FqoicpIYZgs" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@allabtyourfavs/videos/FqoicpIYZgs" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="FUN" data-lang="EN" data-ai-score="70" data-subs="108000" data-virality="202.8">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/JULJnZSOioY','_blank')">
+    <img src="https://i.ytimg.com/vi/JULJnZSOioY/maxresdefault.jpg" alt="Ranking Funniest Motorcycle Scare Pranks 😂" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/JULJnZSOioY/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#76</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/JULJnZSOioY" target="_blank">Ranking Funniest Motorcycle Scare Pranks 😂</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/1CHjp8tL58ykuQbQX3plcRUC4ux5BBPhgHxR_FRbq1GvU5expahhgfutatr08V5fmXxEpDGTWQ=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">FunnyxStudio</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">21.9M</span> 播放</div>
+      <div class="metric"><span class="val">108.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">202.8x</span> 爆款系数</div>
+      <div class="metric"><span class="val">1.07%</span> 互动率</div>
+      <div class="metric"><span class="val">233.3K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-hook">钩子:纯表情/标签</span>
+<span class="tag tag-char">猫咪人设(动物)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">EDIT</span>
+<span class="tag tag-ai">AI适配:70</span>
+</div>
+    <div class="reasons">💡 超高爆款系数(202.8x)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/JULJnZSOioY" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@funnyxstudioz/videos/JULJnZSOioY" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="FUN" data-lang="EN" data-ai-score="70" data-subs="679000" data-virality="33.1">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/Cd6OpE4b_n0','_blank')">
+    <img src="https://i.ytimg.com/vi/Cd6OpE4b_n0/maxresdefault.jpg" alt="Dramaqueen 😏 #gym #funny #memes #comedy #couple #fitness #trending #ytshorts #wo" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/Cd6OpE4b_n0/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#77</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/Cd6OpE4b_n0" target="_blank">Dramaqueen 😏 #gym #funny #memes #comedy #couple #fitness #trending #ytshorts #wo</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/b1qUOfwm7xeZKxl0CawfSZevAIgqkexB6LOI2PzY820yZYjnnRyiEcuAmT6Dd26uL62CJCBp=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Damdaar Jodi</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">22.5M</span> 播放</div>
+      <div class="metric"><span class="val">679.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">33.1x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.87%</span> 互动率</div>
+      <div class="metric"><span class="val">196.5K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-hook">钩子:纯表情/标签</span>
+<span class="tag tag-hook">内容:第三人称搞笑</span>
+<span class="tag tag-char">宝宝/亲子(生活人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:70</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/Cd6OpE4b_n0" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@damdaarjodi/videos/Cd6OpE4b_n0" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="OTH" data-lang="AR" data-ai-score="50" data-subs="13200000" data-virality="1.7">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/d--S4G2YcKc','_blank')">
+    <img src="https://i.ytimg.com/vi/d--S4G2YcKc/maxresdefault.jpg" alt="حظي 😭💔" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/d--S4G2YcKc/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#78</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/d--S4G2YcKc" target="_blank">حظي 😭💔</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/1f5MWZiuvOh_5y2khgszZcu_Y4PUftOvvGTOIE0fvu2HbRuQdYrer5PiraXHIb3dE9W-F2AB0w=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">كابتن حسن عادل _ Alhassän</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">22.2M</span> 播放</div>
+      <div class="metric"><span class="val">13.2M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">1.7x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.42%</span> 互动率</div>
+      <div class="metric"><span class="val">92.4K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">其他</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-lang">AR</span>
+<span class="tag tag-ai">AI适配:50</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/d--S4G2YcKc" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@alhassan-adel/videos/d--S4G2YcKc" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="CMP" data-lang="EN" data-ai-score="95" data-subs="1610000" data-virality="14.3">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/C-4hfWnpnqg','_blank')">
+    <img src="https://i.ytimg.com/vi/C-4hfWnpnqg/maxresdefault.jpg" alt="Who did the best...?? 🤣😜 @triggeredinsaan #ruchikarathore #prernamalhan #wandere" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/C-4hfWnpnqg/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#79</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/C-4hfWnpnqg" target="_blank">Who did the best...?? 🤣😜 @triggeredinsaan #ruchikarathore #prernamalhan #wandere</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/FeBYIXIBn4uS556RuPJXGfVjcm6IWb_BfPTc4rXc85fwXC4El-i1uF1gLfvnl61zDEtYO3gJrp8=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Quick edit</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">23.0M</span> 播放</div>
+      <div class="metric"><span class="val">1.6M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">14.3x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.73%</span> 互动率</div>
+      <div class="metric"><span class="val">166.2K</span> 点赞</div>
+      <div class="metric"><span class="val">5天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">对比/排行</span>
+<span class="tag tag-hook">钩子:震惊/夸张</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">EDIT</span>
+<span class="tag tag-ai">AI适配:95</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(95分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/C-4hfWnpnqg" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@quickedit34/videos/C-4hfWnpnqg" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="OTH" data-lang="EN" data-ai-score="55" data-subs="86900" data-virality="248.9">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/GNvddxOAkj0','_blank')">
+    <img src="https://i.ytimg.com/vi/GNvddxOAkj0/maxresdefault.jpg" alt="Just in time." loading="lazy" onerror="this.src='https://i.ytimg.com/vi/GNvddxOAkj0/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#80</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/GNvddxOAkj0" target="_blank">Just in time.</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/xbJo0Omttoi4RaWI8tBgx_RY2grxXpZuO_P2lMGBQuZmBh2MKKEyoZdui4CLIcvVW_PnXu_p=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">RedWingsMC</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">21.6M</span> 播放</div>
+      <div class="metric"><span class="val">86.9K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">248.9x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.73%</span> 互动率</div>
+      <div class="metric"><span class="val">158.4K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">其他</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:55</span>
+</div>
+    <div class="reasons">💡 小频道爆款(粉丝86,900, 爆款系数248.9x)；超高爆款系数(248.9x)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/GNvddxOAkj0" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@redw1ngs/videos/GNvddxOAkj0" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="ANI" data-lang="EN" data-ai-score="90" data-subs="855000" data-virality="24.8">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/RcsAKKxo6AA','_blank')">
+    <img src="https://i.ytimg.com/vi/RcsAKKxo6AA/maxresdefault.jpg" alt="Of course Barney came back for his coffee 😭#sing #animalhospital #usa" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/RcsAKKxo6AA/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#81</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/RcsAKKxo6AA" target="_blank">Of course Barney came back for his coffee 😭#sing #animalhospital #usa</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/nXQLTci0Ilno2Ot2HBPOLTeTwI5F-UNfdDhmElTgSXyEmxHB6GGp2nG7N5O6SgDELmdYdNm0Cg=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">FreddyBlox </span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">21.2M</span> 播放</div>
+      <div class="metric"><span class="val">855.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">24.8x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.4%</span> 互动率</div>
+      <div class="metric"><span class="val">84.4K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">动物/宠物</span>
+<span class="tag tag-hook">钩子:纯表情/标签</span>
+<span class="tag tag-hook">内容:教程/方法</span>
+<span class="tag tag-char">Roblox角色(游戏/动漫IP)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">SCREEN</span>
+<span class="tag tag-ai">AI适配:90</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(90分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/RcsAKKxo6AA" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@freddybloxrb/videos/RcsAKKxo6AA" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="DIY" data-lang="EN" data-ai-score="80" data-subs="2590000" data-virality="8.4">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/joP99rTYigU','_blank')">
+    <img src="https://i.ytimg.com/vi/joP99rTYigU/maxresdefault.jpg" alt="#TIMELAPSE: START to FINISH Alone BUILD LOG Cabin (Wooden House), How To Build W" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/joP99rTYigU/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#82</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/joP99rTYigU" target="_blank">#TIMELAPSE: START to FINISH Alone BUILD LOG Cabin (Wooden House), How To Build W</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/eZcXi-UpaJRGfbV2FnUVM9H2s4nZBuTBLJRZVsemUL4MkKQD2M4MfznVRnp6PXyVSSbRYZDe=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Bittu Bhai 2.0</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">21.8M</span> 播放</div>
+      <div class="metric"><span class="val">2.6M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">8.4x</span> 爆款系数</div>
+      <div class="metric"><span class="val">1.63%</span> 互动率</div>
+      <div class="metric"><span class="val">353.5K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">手工/创意</span>
+<span class="tag tag-hook">钩子:教程/方法</span>
+<span class="tag tag-char">宝宝/亲子(生活人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">EDIT</span>
+<span class="tag tag-ai">AI适配:80</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(80分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/joP99rTYigU" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@bittubhai7275/videos/joP99rTYigU" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="FUN" data-lang="EN" data-ai-score="70" data-subs="461000" data-virality="46.9">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/3ZiD-Nu4RYY','_blank')">
+    <img src="https://i.ytimg.com/vi/3ZiD-Nu4RYY/maxresdefault.jpg" alt="Bhagwan bharose 🙏🏻😁#explore #viral #ravikishan #memes #exam #comedy #video #fyp" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/3ZiD-Nu4RYY/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#83</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/3ZiD-Nu4RYY" target="_blank">Bhagwan bharose 🙏🏻😁#explore #viral #ravikishan #memes #exam #comedy #video #fyp</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/5UEUpeW2Z34ehQJe-mt7BtgLDW-oJKRnhl2TwJbotOQnRlX0SaGEjA6l_kmjj-Cc5e34Vo_OaA=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Prathamesh Pande</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">21.6M</span> 播放</div>
+      <div class="metric"><span class="val">461.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">46.9x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.82%</span> 互动率</div>
+      <div class="metric"><span class="val">176.5K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:70</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/3ZiD-Nu4RYY" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@prathameshpande02/videos/3ZiD-Nu4RYY" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="ILL" data-lang="EN" data-ai-score="100" data-subs="118000" data-virality="179.1">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/AmEaI3aQOvk','_blank')">
+    <img src="https://i.ytimg.com/vi/AmEaI3aQOvk/maxresdefault.jpg" alt="Infinite Diamond Layers ✨💎" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/AmEaI3aQOvk/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#84</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/AmEaI3aQOvk" target="_blank">Infinite Diamond Layers ✨💎</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/lt4w0QgGQjdOixQdrKFcU1fv9i3e-yYveyUOFj7EFX3Is0eynNCl2hvlIR_pkQRr_RxGUevX=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">SimRush3D</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">21.1M</span> 播放</div>
+      <div class="metric"><span class="val">118.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">179.1x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.33%</span> 互动率</div>
+      <div class="metric"><span class="val">68.9K</span> 点赞</div>
+      <div class="metric"><span class="val">5天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">视觉错觉/特效</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">ANIM</span>
+<span class="tag tag-ai">AI适配:100</span>
+</div>
+    <div class="reasons">💡 超高爆款系数(179.1x)；AI动画适配度高(100分)；已是AI/动画内容，直接参考</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/AmEaI3aQOvk" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@simrush3d/videos/AmEaI3aQOvk" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="OTH" data-lang="EN" data-ai-score="55" data-subs="14400000" data-virality="1.5">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/fi8YxsgJem8','_blank')">
+    <img src="https://i.ytimg.com/vi/fi8YxsgJem8/maxresdefault.jpg" alt="Yujiro meets Pennywise 👹🎈 @twistedpennywise #yujirohanma #pennywise" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/fi8YxsgJem8/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#85</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/fi8YxsgJem8" target="_blank">Yujiro meets Pennywise 👹🎈 @twistedpennywise #yujirohanma #pennywise</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/7ioo7iF1uSG0mSLIpH1wMXPEBYPUGrY-R8SWmLvYX1uhhjCgsCTCySJWx1ntWOCFDe1-9y-bAw=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">The Logan Chitwood</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">20.9M</span> 播放</div>
+      <div class="metric"><span class="val">14.4M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">1.5x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.5%</span> 互动率</div>
+      <div class="metric"><span class="val">103.7K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">其他</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:55</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/fi8YxsgJem8" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@theloganchitwood/videos/fi8YxsgJem8" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="STR" data-lang="EN" data-ai-score="90" data-subs="15900000" data-virality="1.4">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/EiM-h_8Ogbk','_blank')">
+    <img src="https://i.ytimg.com/vi/EiM-h_8Ogbk/maxresdefault.jpg" alt="Last Pain 😭 #shorts" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/EiM-h_8Ogbk/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#86</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/EiM-h_8Ogbk" target="_blank">Last Pain 😭 #shorts</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/QzitBEQ9cIsbuGmKwwxEhACYL2dpt1sQmqahdQ9Qinxs2ZtYM5nKRawOotsgs62-TVGbz6s43w=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Artist Shikha Sharma</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">21.6M</span> 播放</div>
+      <div class="metric"><span class="val">15.9M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">1.4x</span> 爆款系数</div>
+      <div class="metric"><span class="val">2.99%</span> 互动率</div>
+      <div class="metric"><span class="val">637.3K</span> 点赞</div>
+      <div class="metric"><span class="val">5天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">故事/剧情</span>
+<span class="tag tag-hook">钩子:纯表情/标签</span>
+<span class="tag tag-char">猫咪人设(动物)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:90</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(90分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/EiM-h_8Ogbk" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@artistshikhasharma/videos/EiM-h_8Ogbk" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card recommended" data-niche="QIZ" data-lang="EN" data-ai-score="100" data-subs="220000" data-virality="103.2">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/lsLfut2eK4k','_blank')">
+    <img src="https://i.ytimg.com/vi/lsLfut2eK4k/maxresdefault.jpg" alt="Guess the Logo & Noob vs Pro Challenge | Verity, Verity Monster, Nextbots #minec" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/lsLfut2eK4k/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#87</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/lsLfut2eK4k" target="_blank">Guess the Logo & Noob vs Pro Challenge | Verity, Verity Monster, Nextbots #minec</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/xd78TAKf7xBwMwOtsZdBuHkXWnoUoByMSwzXi-TUdoqgvClqjDqSBCdGzpVBwAVEBS5B_V8W1A=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Rae shorts</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">22.7M</span> 播放</div>
+      <div class="metric"><span class="val">220.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">103.2x</span> 爆款系数</div>
+      <div class="metric"><span class="val">1.75%</span> 互动率</div>
+      <div class="metric"><span class="val">395.2K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">猜谜/互动</span>
+<span class="tag tag-hook">钩子:猜谜互动</span>
+<span class="tag tag-char">Minecraft角色(游戏/动漫IP)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:100</span>
+</div>
+    <div class="reasons">💡 超高爆款系数(103.2x)；AI动画适配度高(100分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/lsLfut2eK4k" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@rae-shorts/videos/lsLfut2eK4k" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="FUN" data-lang="EN" data-ai-score="80" data-subs="29400000" data-virality="0.7">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/QKnhmACkmd4','_blank')">
+    <img src="https://i.ytimg.com/vi/QKnhmACkmd4/maxresdefault.jpg" alt="Assustei Ela Com Meus Poderes #shorts" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/QKnhmACkmd4/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#88</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/QKnhmACkmd4" target="_blank">Assustei Ela Com Meus Poderes #shorts</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/dr0_2_JblFcTUiV7YyGrnYRbv6FippzoLj6ok1V47beNQkflxiDEpLf4ycIreksjxaxEf9AZ=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Lucan Pevidor</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">20.5M</span> 播放</div>
+      <div class="metric"><span class="val">29.4M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">0.7x</span> 爆款系数</div>
+      <div class="metric"><span class="val">4.17%</span> 互动率</div>
+      <div class="metric"><span class="val">854.4K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-hook">钩子:纯表情/标签</span>
+<span class="tag tag-char">Among Us(游戏/动漫IP)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:80</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(80分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/QKnhmACkmd4" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@lucanpevidor/videos/QKnhmACkmd4" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="CMP" data-lang="EN" data-ai-score="95" data-subs="277000" data-virality="73.7">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/ZB6Dqqra3B8','_blank')">
+    <img src="https://i.ytimg.com/vi/ZB6Dqqra3B8/maxresdefault.jpg" alt="Girls Vs Boys in School Teachers day dance 😂 #shorts" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/ZB6Dqqra3B8/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#89</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/ZB6Dqqra3B8" target="_blank">Girls Vs Boys in School Teachers day dance 😂 #shorts</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/DBElQGthi17GYFay8d0DYsQPFDaIopxB32dwpoBVM7ln4712bjhs-OT_1HxOFfCBON1Ev3tnJw=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Sauce Twinkle</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">20.4M</span> 播放</div>
+      <div class="metric"><span class="val">277.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">73.7x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.98%</span> 互动率</div>
+      <div class="metric"><span class="val">200.3K</span> 点赞</div>
+      <div class="metric"><span class="val">5天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">对比/排行</span>
+<span class="tag tag-hook">钩子:对比对决</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:95</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(95分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/ZB6Dqqra3B8" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@saucetwinkle/videos/ZB6Dqqra3B8" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="OTH" data-lang="EN" data-ai-score="55" data-subs="111000" data-virality="180.7">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/hgPQz2T6wR4','_blank')">
+    <img src="https://i.ytimg.com/vi/hgPQz2T6wR4/maxresdefault.jpg" alt="Haaland Knocked Neymar's Brazil OUT#worldcup #norway #haaland" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/hgPQz2T6wR4/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#90</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/hgPQz2T6wR4" target="_blank">Haaland Knocked Neymar's Brazil OUT#worldcup #norway #haaland</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/JhQ3uTaFMz7DsCB_kDC6b6E-7z8OWfSFT_Rj5d3T177Pqn5iJptwVZyV44UF9wXnJ4FbIgbFrQ=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">saba ball</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">20.1M</span> 播放</div>
+      <div class="metric"><span class="val">111.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">180.7x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.27%</span> 互动率</div>
+      <div class="metric"><span class="val">53.2K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">其他</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:55</span>
+</div>
+    <div class="reasons">💡 超高爆款系数(180.7x)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/hgPQz2T6wR4" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@sababall0069/videos/hgPQz2T6wR4" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="FUN" data-lang="EN" data-ai-score="70" data-subs="448000" data-virality="43.9">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/PQA_By21T9U','_blank')">
+    <img src="https://i.ytimg.com/vi/PQA_By21T9U/maxresdefault.jpg" alt="Simran became Einstein✅💕|HiteshMakhija| #shorts #school #schoollife #comedy #fun" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/PQA_By21T9U/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#91</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/PQA_By21T9U" target="_blank">Simran became Einstein✅💕|HiteshMakhija| #shorts #school #schoollife #comedy #fun</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/amVtk2De9MW1s95lIFvyMyuGKqTGuzlKc7K8QqmW8qhvOISLgj4I4NcucpH6P-9TYTGwZygt=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Hitesh Makhija</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">19.7M</span> 播放</div>
+      <div class="metric"><span class="val">448.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">43.9x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.68%</span> 互动率</div>
+      <div class="metric"><span class="val">133.6K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:70</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/PQA_By21T9U" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@hiteshmakhija01/videos/PQA_By21T9U" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="OTH" data-lang="ZH" data-ai-score="50" data-subs="157000" data-virality="139.3">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/olk_XkBPa70','_blank')">
+    <img src="https://i.ytimg.com/vi/olk_XkBPa70/maxresdefault.jpg" alt="怪我をしても跳び続ける5歳児のジャンプ力成長記録" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/olk_XkBPa70/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#92</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/olk_XkBPa70" target="_blank">怪我をしても跳び続ける5歳児のジャンプ力成長記録</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/mejOMwk8Ue_C8DiAbVYwkEI0dNzyi3pwLuIhpoYYT5g975ewwPGEzs8w0ulBwWot1uIeF4jQWw=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">K君成長記</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">21.9M</span> 播放</div>
+      <div class="metric"><span class="val">157.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">139.3x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.29%</span> 互动率</div>
+      <div class="metric"><span class="val">63.9K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">其他</span>
+<span class="tag tag-hook">钩子:纯表情/标签</span>
+<span class="tag tag-lang">ZH</span>
+<span class="tag tag-ai">AI适配:50</span>
+</div>
+    <div class="reasons">💡 超高爆款系数(139.3x)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/olk_XkBPa70" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@kutamayako/videos/olk_XkBPa70" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="FUN" data-lang="EN" data-ai-score="70" data-subs="34700000" data-virality="0.6">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/7ikdpmatW_o','_blank')">
+    <img src="https://i.ytimg.com/vi/7ikdpmatW_o/maxresdefault.jpg" alt="When you miss your slim GF🥲🙃" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/7ikdpmatW_o/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#93</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/7ikdpmatW_o" target="_blank">When you miss your slim GF🥲🙃</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/ESeFH2AUcsxtnfxFOPxL3OBkZzpLmxF39-NAjXM5DiVj7qcVvL-2Wt6DINB0RjHAKzJdNEiJ=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">CuRe 구래</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">19.6M</span> 播放</div>
+      <div class="metric"><span class="val">34.7M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">0.6x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.87%</span> 互动率</div>
+      <div class="metric"><span class="val">170.2K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-hook">钩子:第三人称搞笑</span>
+<span class="tag tag-hook">内容:纯表情/标签</span>
+<span class="tag tag-char">情侣(生活人设)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:70</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/7ikdpmatW_o" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@cure0721/videos/7ikdpmatW_o" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="MUS" data-lang="RU" data-ai-score="50" data-subs="44100000" data-virality="0.4">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/ZCFBBGBNCFE','_blank')">
+    <img src="https://i.ytimg.com/vi/ZCFBBGBNCFE/maxresdefault.jpg" alt="Я нашла K-Pop Охотниц на Демонов в своей комнате !!!" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/ZCFBBGBNCFE/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#94</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/ZCFBBGBNCFE" target="_blank">Я нашла K-Pop Охотниц на Демонов в своей комнате !!!</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/AEPME0o_2zGvF5HwWKaF1zVyj5B-BQJjLfx63fO6q1yu2DciX08g9rUSubRONsVoWk0JC4qU1Q=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">BRUNO</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">19.4M</span> 播放</div>
+      <div class="metric"><span class="val">44.1M</span> 粉丝</div>
+      <div class="metric hot"><span class="val">0.4x</span> 爆款系数</div>
+      <div class="metric"><span class="val">2.04%</span> 互动率</div>
+      <div class="metric"><span class="val">395.2K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">音乐/舞蹈</span>
+<span class="tag tag-char">Sonic角色(游戏/动漫IP)</span>
+<span class="tag tag-lang">RU</span>
+<span class="tag tag-ai">AI适配:50</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/ZCFBBGBNCFE" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@vilyambruno/videos/ZCFBBGBNCFE" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="OTH" data-lang="EN" data-ai-score="55" data-subs="312000" data-virality="62.3">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/Ian3nYBUAr8','_blank')">
+    <img src="https://i.ytimg.com/vi/Ian3nYBUAr8/maxresdefault.jpg" alt="She had enough of them 😤" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/Ian3nYBUAr8/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#95</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/Ian3nYBUAr8" target="_blank">She had enough of them 😤</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/T9VUibyfwYIOYqj3pxgkpMnvDpbfg1j_ahO3QHGPc9A1OvnCYojZusqNVi7bAThVEN3Ug2W0=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">sneaksi</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">19.4M</span> 播放</div>
+      <div class="metric"><span class="val">312.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">62.3x</span> 爆款系数</div>
+      <div class="metric"><span class="val">2.0%</span> 互动率</div>
+      <div class="metric"><span class="val">387.8K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">其他</span>
+<span class="tag tag-hook">钩子:纯表情/标签</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:55</span>
+</div>
+    
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/Ian3nYBUAr8" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@sneaksi/videos/Ian3nYBUAr8" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="FUN" data-lang="EN" data-ai-score="80" data-subs="241000" data-virality="84.1">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/ECVDzbIjuVc','_blank')">
+    <img src="https://i.ytimg.com/vi/ECVDzbIjuVc/maxresdefault.jpg" alt="#Jaidmeel" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/ECVDzbIjuVc/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#96</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/ECVDzbIjuVc" target="_blank">#Jaidmeel</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/hGCAjyXecacC2lpPYcFsDan8ifPDUSlQFa6ImSBMpH6VrKBzE9r2LGKoUncoGgS5Xqj4_oMZ=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">fk Amazing 11</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">20.3M</span> 播放</div>
+      <div class="metric"><span class="val">241.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">84.1x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.46%</span> 互动率</div>
+      <div class="metric"><span class="val">93.1K</span> 点赞</div>
+      <div class="metric"><span class="val">6天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">搞笑/整蛊</span>
+<span class="tag tag-hook">钩子:纯表情/标签</span>
+<span class="tag tag-char">Disney角色(游戏/动漫IP)</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-prod">EDIT</span>
+<span class="tag tag-ai">AI适配:80</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(80分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/ECVDzbIjuVc" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@fkamazing11/videos/ECVDzbIjuVc" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-niche="DIY" data-lang="EN" data-ai-score="80" data-subs="311000" data-virality="61.0">
+  <div class="thumb-wrap" onclick="window.open('https://youtube.com/shorts/BEB2VZCxES0','_blank')">
+    <img src="https://i.ytimg.com/vi/BEB2VZCxES0/maxresdefault.jpg" alt="She Showed Up to the Tea Party in a Neon Tracksuit and Nobody Blinked 😂✨🍵" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/BEB2VZCxES0/hqdefault.jpg'">
+    <div class="play-btn"></div>
+    <div class="rank-badge">#97</div>
+  </div>
+  <div class="card-body">
+    <div class="card-title"><a href="https://youtube.com/shorts/BEB2VZCxES0" target="_blank">She Showed Up to the Tea Party in a Neon Tracksuit and Nobody Blinked 😂✨🍵</a></div>
+    <div class="channel"><img src="https://yt3.ggpht.com/Pf5t4zL57yJHxjZEvtQ9ugKLepfeIVIIOuuP83uCi1SMmVv-ERShxZN3pYgDfHIRNr0usbAtvXk=s88-c-k-c0x00ffffff-no-rj" alt=""><span class="channel-name">Vellero</span></div>
+    <div class="metrics">
+      <div class="metric"><span class="val">19.0M</span> 播放</div>
+      <div class="metric"><span class="val">311.0K</span> 粉丝</div>
+      <div class="metric hot"><span class="val">61.0x</span> 爆款系数</div>
+      <div class="metric"><span class="val">0.4%</span> 互动率</div>
+      <div class="metric"><span class="val">75.0K</span> 点赞</div>
+      <div class="metric"><span class="val">7天</span> 已上传</div>
+    </div>
+    <div class="tags"><span class="tag tag-niche">手工/创意</span>
+<span class="tag tag-lang">EN</span>
+<span class="tag tag-ai">AI适配:80</span>
+</div>
+    <div class="reasons">💡 AI动画适配度高(80分)</div>
+    <div class="links">
+      <a class="link-btn" href="https://youtube.com/shorts/BEB2VZCxES0" target="_blank">▶ YouTube</a>
+      <a class="link-btn" href="https://www.viewstats.com/@vellerro/videos/BEB2VZCxES0" target="_blank">📊 Viewstats</a>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+<div class="footer">
+  Generated by YouTube Shorts Monitor | 2026-08-14 03:22 UTC
+</div>
+
+<script>
+function filterCards(type) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.card').forEach(card => {
+    let show = true;
+    if (type === 'recommended') show = card.classList.contains('recommended');
+    else if (type === 'high-ai') show = parseInt(card.dataset.aiScore || 0) >= 80;
+    else if (type === 'en') show = ['EN','NO-LANG'].includes(card.dataset.lang);
+    else if (type === 'small') show = parseInt(card.dataset.subs || 0) < 100000 && parseInt(card.dataset.virality || 0) > 50;
+    card.style.display = show ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
